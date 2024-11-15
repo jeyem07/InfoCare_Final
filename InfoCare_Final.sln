@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoCare_Final", "InfoCare_Final\InfoCare_Final.csproj", "{A6634AFB-2444-447A-9041-1818DF7A539C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6634AFB-2444-447A-9041-1818DF7A539C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6634AFB-2444-447A-9041-1818DF7A539C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6634AFB-2444-447A-9041-1818DF7A539C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6634AFB-2444-447A-9041-1818DF7A539C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07D7A302-A242-4B39-B70E-30E8E66AD8AA}
+	EndGlobalSection
+EndGlobal
