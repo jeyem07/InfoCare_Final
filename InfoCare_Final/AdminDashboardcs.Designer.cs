@@ -45,7 +45,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            PANEL = new Panel();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -59,10 +58,12 @@
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             LogOutButton = new Guna.UI2.WinForms.Guna2Button();
+            AdminDashboardDatagridview = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AdminDashboardDatagridview).BeginInit();
             SuspendLayout();
             // 
             // guna2PictureBox1
@@ -70,21 +71,13 @@
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Image = Properties.Resources.LOGO_INFO_CARE;
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(716, -10);
+            guna2PictureBox1.Location = new Point(749, -8);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2PictureBox1.Size = new Size(115, 101);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox1.TabIndex = 43;
             guna2PictureBox1.TabStop = false;
-            // 
-            // PANEL
-            // 
-            PANEL.Location = new Point(239, 134);
-            PANEL.Name = "PANEL";
-            PANEL.Size = new Size(578, 332);
-            PANEL.TabIndex = 42;
-            PANEL.Visible = false;
             // 
             // guna2CirclePictureBox1
             // 
@@ -140,7 +133,7 @@
             panel1.Controls.Add(AppointmentHistoryButton);
             panel1.Controls.Add(DoctorListButton);
             panel1.Controls.Add(guna2HtmlLabel4);
-            panel1.Location = new Point(26, 134);
+            panel1.Location = new Point(1, 113);
             panel1.Name = "panel1";
             panel1.Size = new Size(207, 376);
             panel1.TabIndex = 37;
@@ -148,6 +141,7 @@
             // PatientListButton
             // 
             PatientListButton.BorderRadius = 20;
+            PatientListButton.Cursor = Cursors.Hand;
             PatientListButton.CustomizableEdges = customizableEdges5;
             PatientListButton.DisabledState.BorderColor = Color.DarkGray;
             PatientListButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -162,10 +156,12 @@
             PatientListButton.Size = new Size(149, 57);
             PatientListButton.TabIndex = 46;
             PatientListButton.Text = "PATIENT LIST";
+            PatientListButton.Click += PatientListButton_Click;
             // 
             // AddDoctorButton
             // 
             AddDoctorButton.BorderRadius = 20;
+            AddDoctorButton.Cursor = Cursors.Hand;
             AddDoctorButton.CustomizableEdges = customizableEdges7;
             AddDoctorButton.DisabledState.BorderColor = Color.DarkGray;
             AddDoctorButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -185,6 +181,7 @@
             // AppointmentHistoryButton
             // 
             AppointmentHistoryButton.BorderRadius = 20;
+            AppointmentHistoryButton.Cursor = Cursors.Hand;
             AppointmentHistoryButton.CustomizableEdges = customizableEdges9;
             AppointmentHistoryButton.DisabledState.BorderColor = Color.DarkGray;
             AppointmentHistoryButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -199,10 +196,12 @@
             AppointmentHistoryButton.Size = new Size(149, 57);
             AppointmentHistoryButton.TabIndex = 26;
             AppointmentHistoryButton.Text = "APPOINTMENT HISTORY";
+            AppointmentHistoryButton.Click += AppointmentHistoryButton_Click;
             // 
             // DoctorListButton
             // 
             DoctorListButton.BorderRadius = 20;
+            DoctorListButton.Cursor = Cursors.Hand;
             DoctorListButton.CustomizableEdges = customizableEdges11;
             DoctorListButton.DisabledState.BorderColor = Color.DarkGray;
             DoctorListButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -217,6 +216,7 @@
             DoctorListButton.Size = new Size(149, 57);
             DoctorListButton.TabIndex = 24;
             DoctorListButton.Text = "DOCTOR LIST";
+            DoctorListButton.Click += DoctorListButton_Click;
             // 
             // guna2HtmlLabel4
             // 
@@ -254,9 +254,11 @@
             guna2HtmlLabel3.Size = new Size(49, 21);
             guna2HtmlLabel3.TabIndex = 45;
             guna2HtmlLabel3.Text = "Log Out";
+            guna2HtmlLabel3.Click += guna2HtmlLabel3_Click;
             // 
             // LogOutButton
             // 
+            LogOutButton.Cursor = Cursors.Hand;
             LogOutButton.CustomizableEdges = customizableEdges15;
             LogOutButton.DisabledState.BorderColor = Color.DarkGray;
             LogOutButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -273,16 +275,27 @@
             LogOutButton.TabIndex = 44;
             LogOutButton.Click += LogOutButton_Click;
             // 
+            // AdminDashboardDatagridview
+            // 
+            AdminDashboardDatagridview.BackgroundColor = Color.White;
+            AdminDashboardDatagridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AdminDashboardDatagridview.Location = new Point(214, 121);
+            AdminDashboardDatagridview.Name = "AdminDashboardDatagridview";
+            AdminDashboardDatagridview.RowHeadersWidth = 51;
+            AdminDashboardDatagridview.RowTemplate.Height = 29;
+            AdminDashboardDatagridview.Size = new Size(629, 368);
+            AdminDashboardDatagridview.TabIndex = 46;
+            // 
             // AdminDashboardcs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(845, 569);
+            ClientSize = new Size(860, 518);
             ControlBox = false;
+            Controls.Add(AdminDashboardDatagridview);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(LogOutButton);
             Controls.Add(guna2PictureBox1);
-            Controls.Add(PANEL);
             Controls.Add(guna2CirclePictureBox1);
             Controls.Add(guna2CirclePictureBox3);
             Controls.Add(guna2HtmlLabel1);
@@ -296,6 +309,7 @@
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)AdminDashboardDatagridview).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -303,7 +317,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Panel PANEL;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
@@ -317,5 +330,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2Button LogOutButton;
         private Guna.UI2.WinForms.Guna2Button PatientListButton;
+        private DataGridView AdminDashboardDatagridview;
     }
 }

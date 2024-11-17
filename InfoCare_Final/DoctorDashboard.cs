@@ -16,5 +16,21 @@ namespace InfoCare_Final
         {
             InitializeComponent();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Log out succesful");
+            AdminLogin adminLogin = new AdminLogin();
+            adminLogin.Show();
+            this.Hide();
+        }
+
+        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Log out succesful");
+            AdminLogin adminLogin = new AdminLogin();
+            adminLogin.Show();
+            this.Hide();
+        }
     }
 }

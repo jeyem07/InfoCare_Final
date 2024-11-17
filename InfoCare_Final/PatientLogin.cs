@@ -73,5 +73,27 @@ namespace InfoCare_Final
             patientRegister.Show();
             this.Hide();
         }
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
+        }
+
+        private void ShowpasswordCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowpasswordCheckbox.Checked)
+            {
+                PasswordTextbox.PasswordChar = '\0';
+                PasswordTextbox.UseSystemPasswordChar = false;
+
+            }
+            else
+            {
+                PasswordTextbox.PasswordChar = '●';
+                PasswordTextbox.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

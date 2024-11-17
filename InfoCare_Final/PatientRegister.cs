@@ -49,7 +49,7 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "INSERT INTO tb_infocare (p_firstname, p_Lastname, p_username, p_ContactNumber, p_Password, p_hashedpassword) VALUES (@p_firstname, @p_Lastname, @p_username, @p_contactnumber,  @p_Password, @p_HashedPassword)";
+                string query = "INSERT INTO tb_infocare (p_firstname, p_Lastname, p_username, p_Contact, p_Password, p_hashedpassword, Role) VALUES (@p_firstname, @p_Lastname, @p_username, @p_contactnumber,  @p_Password, @p_HashedPassword, @Role)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -59,7 +59,7 @@ namespace InfoCare_Final
                     cmd.Parameters.AddWithValue("@p_contactnumber", ContactNumberTextbox.Text);
                     cmd.Parameters.AddWithValue("@p_Password", PasswordTextbox.Text);
                     cmd.Parameters.AddWithValue("@p_HashedPassword", hashedPassword);
-
+                    cmd.Parameters.AddWithValue("@Role", "Patient");
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -87,6 +87,31 @@ namespace InfoCare_Final
 
             this.Hide();
 
+        }
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
+        }
+
+        private void ShowpasswordCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowpasswordCheckbox.Checked)
+            {
+                PasswordTextbox.PasswordChar = '\0';
+                PasswordTextbox.UseSystemPasswordChar = false;
+                ConfirmPasswordTextbox.PasswordChar = '\0';
+                ConfirmPasswordTextbox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                PasswordTextbox.PasswordChar = '●';
+                PasswordTextbox.UseSystemPasswordChar = true;
+                ConfirmPasswordTextbox.PasswordChar = '●';
+                ConfirmPasswordTextbox.UseSystemPasswordChar = true;
+            }
         }
     }
 }

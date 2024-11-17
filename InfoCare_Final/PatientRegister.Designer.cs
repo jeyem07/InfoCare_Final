@@ -68,6 +68,7 @@
             // 
             // HomeButton
             // 
+            HomeButton.Cursor = Cursors.Hand;
             HomeButton.DisabledState.BorderColor = Color.DarkGray;
             HomeButton.DisabledState.CustomBorderColor = Color.DarkGray;
             HomeButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -82,6 +83,7 @@
             HomeButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             HomeButton.Size = new Size(48, 39);
             HomeButton.TabIndex = 11;
+            HomeButton.Click += HomeButton_Click;
             // 
             // guna2PictureBox1
             // 
@@ -200,7 +202,7 @@
             PasswordTextbox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             PasswordTextbox.Location = new Point(30, 277);
             PasswordTextbox.Name = "PasswordTextbox";
-            PasswordTextbox.PasswordChar = '\0';
+            PasswordTextbox.PasswordChar = '●';
             PasswordTextbox.PlaceholderForeColor = Color.Black;
             PasswordTextbox.PlaceholderText = "Password";
             PasswordTextbox.SelectedText = "";
@@ -275,7 +277,7 @@
             ConfirmPasswordTextbox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             ConfirmPasswordTextbox.Location = new Point(403, 277);
             ConfirmPasswordTextbox.Name = "ConfirmPasswordTextbox";
-            ConfirmPasswordTextbox.PasswordChar = '\0';
+            ConfirmPasswordTextbox.PasswordChar = '●';
             ConfirmPasswordTextbox.PlaceholderForeColor = Color.Black;
             ConfirmPasswordTextbox.PlaceholderText = "Confirm Password";
             ConfirmPasswordTextbox.SelectedText = "";
@@ -286,16 +288,19 @@
             // ShowpasswordCheckbox
             // 
             ShowpasswordCheckbox.AutoSize = true;
+            ShowpasswordCheckbox.Cursor = Cursors.Hand;
             ShowpasswordCheckbox.Location = new Point(46, 340);
             ShowpasswordCheckbox.Name = "ShowpasswordCheckbox";
             ShowpasswordCheckbox.Size = new Size(132, 24);
             ShowpasswordCheckbox.TabIndex = 27;
             ShowpasswordCheckbox.Text = "Show Password";
             ShowpasswordCheckbox.UseVisualStyleBackColor = true;
+            ShowpasswordCheckbox.CheckedChanged += ShowpasswordCheckbox_CheckedChanged;
             // 
             // LoginLabel
             // 
             LoginLabel.AutoSize = true;
+            LoginLabel.Cursor = Cursors.Hand;
             LoginLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LoginLabel.LinkColor = Color.FromArgb(60, 128, 174);
             LoginLabel.Location = new Point(92, 377);
@@ -309,6 +314,7 @@
             // RegisterButton
             // 
             RegisterButton.BorderRadius = 20;
+            RegisterButton.Cursor = Cursors.Hand;
             RegisterButton.CustomizableEdges = customizableEdges18;
             RegisterButton.DisabledState.BorderColor = Color.DarkGray;
             RegisterButton.DisabledState.CustomBorderColor = Color.DarkGray;

@@ -144,6 +144,7 @@
             // 
             // LogoutButton
             // 
+            LogoutButton.Cursor = Cursors.Hand;
             LogoutButton.CustomizableEdges = customizableEdges5;
             LogoutButton.DisabledState.BorderColor = Color.DarkGray;
             LogoutButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -158,6 +159,7 @@
             LogoutButton.ShadowDecoration.CustomizableEdges = customizableEdges6;
             LogoutButton.Size = new Size(34, 36);
             LogoutButton.TabIndex = 19;
+            LogoutButton.Click += LogoutButton_Click;
             // 
             // Logoutlabel
             // 
@@ -168,6 +170,7 @@
             Logoutlabel.Size = new Size(49, 21);
             Logoutlabel.TabIndex = 20;
             Logoutlabel.Text = "Log Out";
+            Logoutlabel.Click += Logoutlabel_Click;
             // 
             // guna2HtmlLabel4
             // 
@@ -192,6 +195,7 @@
             // AppointmentHistoryButton
             // 
             AppointmentHistoryButton.BorderRadius = 20;
+            AppointmentHistoryButton.Cursor = Cursors.Hand;
             AppointmentHistoryButton.CustomizableEdges = customizableEdges7;
             AppointmentHistoryButton.DisabledState.BorderColor = Color.DarkGray;
             AppointmentHistoryButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -210,6 +214,7 @@
             // BookAppointmentButton
             // 
             BookAppointmentButton.BorderRadius = 20;
+            BookAppointmentButton.Cursor = Cursors.Hand;
             BookAppointmentButton.CustomizableEdges = customizableEdges9;
             BookAppointmentButton.DisabledState.BorderColor = Color.DarkGray;
             BookAppointmentButton.DisabledState.CustomBorderColor = Color.DarkGray;

@@ -56,6 +56,7 @@
             // 
             // HomeButton
             // 
+            HomeButton.Cursor = Cursors.Hand;
             HomeButton.DisabledState.BorderColor = Color.DarkGray;
             HomeButton.DisabledState.CustomBorderColor = Color.DarkGray;
             HomeButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -75,6 +76,7 @@
             // LoginButton
             // 
             LoginButton.BorderRadius = 20;
+            LoginButton.Cursor = Cursors.Hand;
             LoginButton.CustomizableEdges = customizableEdges2;
             LoginButton.DisabledState.BorderColor = Color.DarkGray;
             LoginButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -94,6 +96,7 @@
             // ShowpasswordCheckbox
             // 
             ShowpasswordCheckbox.AutoSize = true;
+            ShowpasswordCheckbox.Cursor = Cursors.Hand;
             ShowpasswordCheckbox.Location = new Point(52, 265);
             ShowpasswordCheckbox.Name = "ShowpasswordCheckbox";
             ShowpasswordCheckbox.Size = new Size(132, 24);
@@ -106,6 +109,7 @@
             // 
             PasswordTextbox.BorderColor = Color.Transparent;
             PasswordTextbox.BorderRadius = 10;
+            PasswordTextbox.Cursor = Cursors.IBeam;
             PasswordTextbox.CustomizableEdges = customizableEdges4;
             PasswordTextbox.DefaultText = "";
             PasswordTextbox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -131,6 +135,7 @@
             // 
             UsernameTextbox.BorderColor = Color.Transparent;
             UsernameTextbox.BorderRadius = 10;
+            UsernameTextbox.Cursor = Cursors.IBeam;
             UsernameTextbox.CustomizableEdges = customizableEdges6;
             UsernameTextbox.DefaultText = "";
             UsernameTextbox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);

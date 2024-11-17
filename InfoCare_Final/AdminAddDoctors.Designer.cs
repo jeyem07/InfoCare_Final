@@ -121,6 +121,7 @@
             // 
             FirstNameTextBox.BorderColor = Color.Transparent;
             FirstNameTextBox.BorderRadius = 10;
+            FirstNameTextBox.Cursor = Cursors.IBeam;
             FirstNameTextBox.CustomizableEdges = customizableEdges5;
             FirstNameTextBox.DefaultText = "";
             FirstNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -146,6 +147,7 @@
             // 
             UserNameTextBox.BorderColor = Color.Transparent;
             UserNameTextBox.BorderRadius = 10;
+            UserNameTextBox.Cursor = Cursors.IBeam;
             UserNameTextBox.CustomizableEdges = customizableEdges7;
             UserNameTextBox.DefaultText = "";
             UserNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -171,6 +173,7 @@
             // 
             PasswordTextBox.BorderColor = Color.Transparent;
             PasswordTextBox.BorderRadius = 10;
+            PasswordTextBox.Cursor = Cursors.IBeam;
             PasswordTextBox.CustomizableEdges = customizableEdges9;
             PasswordTextBox.DefaultText = "";
             PasswordTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -196,6 +199,7 @@
             // 
             LastNameTextBox.BorderColor = Color.Transparent;
             LastNameTextBox.BorderRadius = 10;
+            LastNameTextBox.Cursor = Cursors.IBeam;
             LastNameTextBox.CustomizableEdges = customizableEdges11;
             LastNameTextBox.DefaultText = "";
             LastNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -221,6 +225,7 @@
             // 
             ConsultationFeeTextBox.BorderColor = Color.Transparent;
             ConsultationFeeTextBox.BorderRadius = 10;
+            ConsultationFeeTextBox.Cursor = Cursors.IBeam;
             ConsultationFeeTextBox.CustomizableEdges = customizableEdges13;
             ConsultationFeeTextBox.DefaultText = "";
             ConsultationFeeTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -246,6 +251,7 @@
             // 
             ConfirmPasswordTextBox.BorderColor = Color.Transparent;
             ConfirmPasswordTextBox.BorderRadius = 10;
+            ConfirmPasswordTextBox.Cursor = Cursors.IBeam;
             ConfirmPasswordTextBox.CustomizableEdges = customizableEdges15;
             ConfirmPasswordTextBox.DefaultText = "";
             ConfirmPasswordTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -270,6 +276,7 @@
             // ShowpasswordCheckbox
             // 
             ShowpasswordCheckbox.AutoSize = true;
+            ShowpasswordCheckbox.Cursor = Cursors.Hand;
             ShowpasswordCheckbox.Location = new Point(61, 353);
             ShowpasswordCheckbox.Name = "ShowpasswordCheckbox";
             ShowpasswordCheckbox.Size = new Size(132, 24);
@@ -281,6 +288,7 @@
             // LoginButton
             // 
             LoginButton.BorderRadius = 20;
+            LoginButton.Cursor = Cursors.Hand;
             LoginButton.CustomizableEdges = customizableEdges17;
             LoginButton.DisabledState.BorderColor = Color.DarkGray;
             LoginButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -299,13 +307,14 @@
             // 
             // ExitButton
             // 
+            ExitButton.Cursor = Cursors.Hand;
             ExitButton.Image = Properties.Resources.BACK_BUTTON;
             ExitButton.ImageRotate = 0F;
             ExitButton.Location = new Point(1, 2);
             ExitButton.Name = "ExitButton";
             ExitButton.ShadowDecoration.CustomizableEdges = customizableEdges19;
             ExitButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            ExitButton.Size = new Size(59, 46);
+            ExitButton.Size = new Size(25, 33);
             ExitButton.SizeMode = PictureBoxSizeMode.StretchImage;
             ExitButton.TabIndex = 58;
             ExitButton.TabStop = false;

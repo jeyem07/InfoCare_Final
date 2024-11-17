@@ -107,6 +107,7 @@
             // PatientFormButton
             // 
             PatientFormButton.BorderRadius = 20;
+            PatientFormButton.Cursor = Cursors.Hand;
             PatientFormButton.CustomizableEdges = customizableEdges5;
             PatientFormButton.DisabledState.BorderColor = Color.DarkGray;
             PatientFormButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -152,6 +153,7 @@
             // DoctorFormButton
             // 
             DoctorFormButton.BorderRadius = 20;
+            DoctorFormButton.Cursor = Cursors.Hand;
             DoctorFormButton.CustomizableEdges = customizableEdges11;
             DoctorFormButton.DisabledState.BorderColor = Color.DarkGray;
             DoctorFormButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -171,6 +173,7 @@
             // AdminFormButton
             // 
             AdminFormButton.BorderRadius = 20;
+            AdminFormButton.Cursor = Cursors.Hand;
             AdminFormButton.CustomizableEdges = customizableEdges13;
             AdminFormButton.DisabledState.BorderColor = Color.DarkGray;
             AdminFormButton.DisabledState.CustomBorderColor = Color.DarkGray;

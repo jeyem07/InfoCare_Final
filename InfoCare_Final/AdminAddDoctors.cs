@@ -37,6 +37,7 @@ namespace InfoCare_Final
             AdminDashboardcs adminDashboardcs = new AdminDashboardcs();
             adminDashboardcs.Show();
             this.Close();
+
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "INSERT INTO tb_Infocare (D_firstname, D_lastname, D_username, D_Consultationfee, D_password, D_hashedpassword) VALUES (@D_firstname, @D_lastname, @D_username, @D_consultationfee,  @D_password, @D_hashedpassword)";
+                string query = "INSERT INTO tb_Infocare (D_firstname, D_lastname, D_username, D_Consultationfee, D_password, D_hashedpassword, Role) VALUES (@D_firstname, @D_lastname, @D_username, @D_consultationfee,  @D_password, @D_hashedpassword, @Role)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -68,6 +69,7 @@ namespace InfoCare_Final
                     cmd.Parameters.AddWithValue("@D_consultationfee", ConsultationFeeTextBox.Text);
                     cmd.Parameters.AddWithValue("@D_password", PasswordTextBox.Text);
                     cmd.Parameters.AddWithValue("@D_hashedpassword", hashedPassword);
+                    cmd.Parameters.AddWithValue("@Role", "Doctor");
 
 
                     try

@@ -53,7 +53,7 @@
             ViewAppointmentsPanel = new Panel();
             ViewAppointmentsDatagrid = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            LogoutButton = new Guna.UI2.WinForms.Guna2Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
@@ -75,6 +75,7 @@
             // ViewAppointmentsButton
             // 
             ViewAppointmentsButton.BorderRadius = 20;
+            ViewAppointmentsButton.Cursor = Cursors.Hand;
             ViewAppointmentsButton.CustomizableEdges = customizableEdges1;
             ViewAppointmentsButton.DisabledState.BorderColor = Color.DarkGray;
             ViewAppointmentsButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -93,6 +94,7 @@
             // PatientinformationButton
             // 
             PatientinformationButton.BorderRadius = 20;
+            PatientinformationButton.Cursor = Cursors.Hand;
             PatientinformationButton.CustomizableEdges = customizableEdges3;
             PatientinformationButton.DisabledState.BorderColor = Color.DarkGray;
             PatientinformationButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -127,6 +129,7 @@
             guna2HtmlLabel3.Size = new Size(49, 21);
             guna2HtmlLabel3.TabIndex = 24;
             guna2HtmlLabel3.Text = "Log Out";
+            guna2HtmlLabel3.Click += guna2HtmlLabel3_Click;
             // 
             // guna2HtmlLabel1
             // 
@@ -249,22 +252,24 @@
             guna2PictureBox1.TabIndex = 34;
             guna2PictureBox1.TabStop = false;
             // 
-            // guna2Button1
+            // LogoutButton
             // 
-            guna2Button1.CustomizableEdges = customizableEdges9;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.Transparent;
-            guna2Button1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Image = Properties.Resources.LOGOUT_LOGO;
-            guna2Button1.Location = new Point(12, 5);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Button1.Size = new Size(34, 36);
-            guna2Button1.TabIndex = 23;
+            LogoutButton.Cursor = Cursors.Hand;
+            LogoutButton.CustomizableEdges = customizableEdges9;
+            LogoutButton.DisabledState.BorderColor = Color.DarkGray;
+            LogoutButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            LogoutButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            LogoutButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            LogoutButton.FillColor = Color.Transparent;
+            LogoutButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LogoutButton.ForeColor = Color.White;
+            LogoutButton.Image = Properties.Resources.LOGOUT_LOGO;
+            LogoutButton.Location = new Point(12, 5);
+            LogoutButton.Name = "LogoutButton";
+            LogoutButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            LogoutButton.Size = new Size(34, 36);
+            LogoutButton.TabIndex = 23;
+            LogoutButton.Click += guna2Button1_Click;
             // 
             // DoctorDashboard
             // 
@@ -280,7 +285,7 @@
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(panel1);
             Controls.Add(guna2HtmlLabel3);
-            Controls.Add(guna2Button1);
+            Controls.Add(LogoutButton);
             Name = "DoctorDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
@@ -308,6 +313,6 @@
         private Guna.UI2.WinForms.Guna2Button ViewAppointmentsButton;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2DataGridView ViewAppointmentsDatagrid;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button LogoutButton;
     }
 }

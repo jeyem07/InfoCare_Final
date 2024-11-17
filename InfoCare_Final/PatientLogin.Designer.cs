@@ -121,7 +121,7 @@
             PasswordTextbox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             PasswordTextbox.Location = new Point(34, 204);
             PasswordTextbox.Name = "PasswordTextbox";
-            PasswordTextbox.PasswordChar = '\0';
+            PasswordTextbox.PasswordChar = '●';
             PasswordTextbox.PlaceholderForeColor = Color.Black;
             PasswordTextbox.PlaceholderText = "Password";
             PasswordTextbox.SelectedText = "";
@@ -132,16 +132,19 @@
             // ShowpasswordCheckbox
             // 
             ShowpasswordCheckbox.AutoSize = true;
+            ShowpasswordCheckbox.Cursor = Cursors.Hand;
             ShowpasswordCheckbox.Location = new Point(47, 264);
             ShowpasswordCheckbox.Name = "ShowpasswordCheckbox";
             ShowpasswordCheckbox.Size = new Size(132, 24);
             ShowpasswordCheckbox.TabIndex = 5;
             ShowpasswordCheckbox.Text = "Show Password";
             ShowpasswordCheckbox.UseVisualStyleBackColor = true;
+            ShowpasswordCheckbox.CheckedChanged += ShowpasswordCheckbox_CheckedChanged;
             // 
             // LoginButton
             // 
             LoginButton.BorderRadius = 20;
+            LoginButton.Cursor = Cursors.Hand;
             LoginButton.CustomizableEdges = customizableEdges7;
             LoginButton.DisabledState.BorderColor = Color.DarkGray;
             LoginButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -188,6 +191,7 @@
             // RegisterLabel
             // 
             RegisterLabel.AutoSize = true;
+            RegisterLabel.Cursor = Cursors.Hand;
             RegisterLabel.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             RegisterLabel.LinkColor = Color.FromArgb(60, 128, 174);
             RegisterLabel.Location = new Point(47, 327);
@@ -200,6 +204,7 @@
             // 
             // HomeButton
             // 
+            HomeButton.Cursor = Cursors.Hand;
             HomeButton.DisabledState.BorderColor = Color.DarkGray;
             HomeButton.DisabledState.CustomBorderColor = Color.DarkGray;
             HomeButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -214,6 +219,7 @@
             HomeButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             HomeButton.Size = new Size(48, 39);
             HomeButton.TabIndex = 10;
+            HomeButton.Click += HomeButton_Click;
             // 
             // PatientLogin
             // 
