@@ -15,6 +15,7 @@ namespace InfoCare_Final
     public partial class PatientLogin : Form
     {
         private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+        private string LoggedinUsername;
 
         public PatientLogin()
         {
@@ -35,31 +36,39 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "SELECT p_HashedPassword FROM tb_infocare WHERE p_username = @p_username";
+                string query = "SELECT p_HashedPassword,Role FROM tb_infocare WHERE p_username = @p_username";
+                
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@p_username", username);
-                    string storedHashedPassword = (string)cmd.ExecuteScalar();
 
-                    if (storedHashedPassword != null && VerifyPassword(password, storedHashedPassword))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        MessageBox.Show("Login successful!", "succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (reader.Read())
+                        {
+                            
+                            string storedHashedPassword = reader["p_HashedPassword"].ToString();
+                            
 
-                        PatientDashboard patientDashboard = new PatientDashboard();
-                        patientDashboard.Show();
+                            
+                            if (VerifyPassword(password, storedHashedPassword))
+                            {
+                                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        this.Hide();
+                                
+                                PatientDashboard patientDashboard = new PatientDashboard(username);
+                                patientDashboard.Show();
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password.", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                this.Hide();
+                                return;
+                            }
+                        }
+
+
                     }
                 }
 
-
             }
-
         }
 
         private bool VerifyPassword(string enteredPassword, string storedHashedPassword)

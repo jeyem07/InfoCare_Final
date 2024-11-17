@@ -35,25 +35,33 @@ namespace InfoCare_Final
             {
                 conn.Open();
                 string query = "SELECT D_hashedpassword FROM tb_infocare WHERE D_username = @D_username";
+               
+                
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@D_username", username);
-                    string storedHashedPassword = (string)cmd.ExecuteScalar();
 
-                    if (storedHashedPassword != null && VerifyPassword(password, storedHashedPassword))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        MessageBox.Show("Login successful!", "succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (reader.Read())
+                        {
+                            string storedHashedPassword = reader["D_HashedPassword"].ToString();
+                            
 
-                        DoctorDashboard doctorDashboard = new DoctorDashboard();
-                        doctorDashboard.Show();
+                            if (VerifyPassword(password, storedHashedPassword))
+                            {
+                                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        this.Hide();
 
+                                DoctorDashboard doctorDashboard = new DoctorDashboard(username);
+                                doctorDashboard.Show();
+
+                                this.Hide();
+                                return;
+                            }
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password.", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+
                 }
             }
         }

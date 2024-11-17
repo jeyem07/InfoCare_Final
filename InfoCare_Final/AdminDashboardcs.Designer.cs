@@ -84,7 +84,7 @@
             guna2CirclePictureBox1.BackColor = Color.FromArgb(102, 162, 205);
             guna2CirclePictureBox1.Image = Properties.Resources.ADMIN_LOGO;
             guna2CirclePictureBox1.ImageRotate = 0F;
-            guna2CirclePictureBox1.Location = new Point(503, 45);
+            guna2CirclePictureBox1.Location = new Point(259, 35);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -97,7 +97,7 @@
             // 
             guna2CirclePictureBox3.Image = Properties.Resources.Screenshot_2024_11_15_212037;
             guna2CirclePictureBox3.ImageRotate = 0F;
-            guna2CirclePictureBox3.Location = new Point(484, 33);
+            guna2CirclePictureBox3.Location = new Point(240, 23);
             guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -110,7 +110,7 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2HtmlLabel1.Location = new Point(385, 54);
+            guna2HtmlLabel1.Location = new Point(414, 54);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(82, 39);
             guna2HtmlLabel1.TabIndex = 39;
@@ -120,7 +120,7 @@
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2HtmlLabel2.Location = new Point(304, 54);
+            guna2HtmlLabel2.Location = new Point(333, 54);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(75, 39);
             guna2HtmlLabel2.TabIndex = 38;

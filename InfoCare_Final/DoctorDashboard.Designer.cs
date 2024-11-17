@@ -46,7 +46,7 @@
             PatientinformationButton = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            DoctorNameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -131,21 +131,21 @@
             guna2HtmlLabel3.Text = "Log Out";
             guna2HtmlLabel3.Click += guna2HtmlLabel3_Click;
             // 
-            // guna2HtmlLabel1
+            // DoctorNameLabel
             // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2HtmlLabel1.Location = new Point(312, 37);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(169, 39);
-            guna2HtmlLabel1.TabIndex = 27;
-            guna2HtmlLabel1.Text = "DOCTOR NAME";
+            DoctorNameLabel.BackColor = Color.Transparent;
+            DoctorNameLabel.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            DoctorNameLabel.Location = new Point(373, 44);
+            DoctorNameLabel.Name = "DoctorNameLabel";
+            DoctorNameLabel.Size = new Size(169, 39);
+            DoctorNameLabel.TabIndex = 27;
+            DoctorNameLabel.Text = "DOCTOR NAME";
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2HtmlLabel2.Location = new Point(231, 37);
+            guna2HtmlLabel2.Location = new Point(292, 44);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(75, 39);
             guna2HtmlLabel2.TabIndex = 26;
@@ -156,7 +156,7 @@
             guna2CirclePictureBox1.BackColor = Color.FromArgb(102, 162, 205);
             guna2CirclePictureBox1.Image = Properties.Resources.Screenshot_2024_11_16_010241;
             guna2CirclePictureBox1.ImageRotate = 0F;
-            guna2CirclePictureBox1.Location = new Point(506, 27);
+            guna2CirclePictureBox1.Location = new Point(215, 31);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges5;
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -169,7 +169,7 @@
             // 
             guna2CirclePictureBox3.Image = Properties.Resources.Screenshot_2024_11_15_212037;
             guna2CirclePictureBox3.ImageRotate = 0F;
-            guna2CirclePictureBox3.Location = new Point(487, 15);
+            guna2CirclePictureBox3.Location = new Point(196, 19);
             guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -281,13 +281,14 @@
             Controls.Add(ViewAppointmentsPanel);
             Controls.Add(guna2CirclePictureBox1);
             Controls.Add(guna2CirclePictureBox3);
-            Controls.Add(guna2HtmlLabel1);
+            Controls.Add(DoctorNameLabel);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(panel1);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(LogoutButton);
             Name = "DoctorDashboard";
             StartPosition = FormStartPosition.CenterScreen;
+            Load += DoctorDashboard_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
@@ -305,7 +306,7 @@
         private Guna.UI2.WinForms.Guna2Button PatientinformationButton;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel DoctorNameLabel;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox3;

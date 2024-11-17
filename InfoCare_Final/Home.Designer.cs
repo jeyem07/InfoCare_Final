@@ -194,7 +194,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(782, 412);
+            ClientSize = new Size(782, 449);
             ControlBox = false;
             Controls.Add(AdminFormButton);
             Controls.Add(DoctorFormButton);

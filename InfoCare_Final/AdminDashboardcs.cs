@@ -124,7 +124,7 @@ namespace InfoCare_Final
 
         private void DoctorListButton_Click(object sender, EventArgs e)
         {
-           
+
 
             try
             {
@@ -173,7 +173,7 @@ namespace InfoCare_Final
         }
         public void DoctorListButtonChangeColor()
         {
-             DoctorListButton.FillColor = Color.FromArgb(60, 128, 174);
+            DoctorListButton.FillColor = Color.FromArgb(60, 128, 174);
             PatientListButton.FillColor = Color.FromArgb(102, 162, 205);
             AppointmentHistoryButton.FillColor = Color.FromArgb(102, 162, 205);
             AddDoctorButton.FillColor = Color.FromArgb(102, 162, 205);
