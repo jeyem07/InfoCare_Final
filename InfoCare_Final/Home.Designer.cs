@@ -96,7 +96,7 @@
             guna2PictureBox2.CustomizableEdges = customizableEdges3;
             guna2PictureBox2.Image = (Image)resources.GetObject("guna2PictureBox2.Image");
             guna2PictureBox2.ImageRotate = 0F;
-            guna2PictureBox2.Location = new Point(48, 185);
+            guna2PictureBox2.Location = new Point(44, 185);
             guna2PictureBox2.Name = "guna2PictureBox2";
             guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2PictureBox2.Size = new Size(166, 150);
@@ -116,10 +116,10 @@
             PatientFormButton.FillColor = Color.FromArgb(102, 162, 205);
             PatientFormButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PatientFormButton.ForeColor = Color.Black;
-            PatientFormButton.Location = new Point(48, 344);
+            PatientFormButton.Location = new Point(32, 327);
             PatientFormButton.Name = "PatientFormButton";
             PatientFormButton.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            PatientFormButton.Size = new Size(166, 56);
+            PatientFormButton.Size = new Size(192, 56);
             PatientFormButton.TabIndex = 4;
             PatientFormButton.Text = "PATIENT";
             PatientFormButton.Click += PatientFormButton_Click;
@@ -162,10 +162,10 @@
             DoctorFormButton.FillColor = Color.FromArgb(102, 162, 205);
             DoctorFormButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             DoctorFormButton.ForeColor = Color.Black;
-            DoctorFormButton.Location = new Point(316, 344);
+            DoctorFormButton.Location = new Point(302, 327);
             DoctorFormButton.Name = "DoctorFormButton";
             DoctorFormButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            DoctorFormButton.Size = new Size(166, 56);
+            DoctorFormButton.Size = new Size(192, 56);
             DoctorFormButton.TabIndex = 7;
             DoctorFormButton.Text = "DOCTOR";
             DoctorFormButton.Click += DoctorFormButton_Click;
@@ -182,10 +182,10 @@
             AdminFormButton.FillColor = Color.FromArgb(102, 162, 205);
             AdminFormButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             AdminFormButton.ForeColor = Color.Black;
-            AdminFormButton.Location = new Point(572, 344);
+            AdminFormButton.Location = new Point(559, 327);
             AdminFormButton.Name = "AdminFormButton";
             AdminFormButton.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            AdminFormButton.Size = new Size(166, 56);
+            AdminFormButton.Size = new Size(192, 56);
             AdminFormButton.TabIndex = 8;
             AdminFormButton.Text = "ADMIN";
             AdminFormButton.Click += AdminFormButton_Click;

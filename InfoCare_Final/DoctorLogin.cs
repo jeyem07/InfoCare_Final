@@ -34,7 +34,7 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "SELECT D_hashedpassword FROM tb_infocare WHERE D_username = @D_username";
+                string query = "SELECT D_password FROM tb_infocare WHERE D_username = @D_username";
                
                 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -45,11 +45,6 @@ namespace InfoCare_Final
                     {
                         if (reader.Read())
                         {
-                            string storedHashedPassword = reader["D_HashedPassword"].ToString();
-                            
-
-                            if (VerifyPassword(password, storedHashedPassword))
-                            {
                                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -58,16 +53,11 @@ namespace InfoCare_Final
 
                                 this.Hide();
                                 return;
-                            }
                         }
                     }
 
                 }
             }
-        }
-        private bool VerifyPassword(string enteredPassword, string storedHashedPassword)
-        {
-            return BCrypt.Net.BCrypt.Verify(enteredPassword, storedHashedPassword);
         }
 
         private void ShowpasswordCheckbox_CheckedChanged(object sender, EventArgs e)

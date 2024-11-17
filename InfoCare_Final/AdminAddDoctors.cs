@@ -26,12 +26,6 @@ namespace InfoCare_Final
 
         }
 
-        private string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
-
-
         private void ExitButton_Click(object sender, EventArgs e)
         {
             AdminDashboardcs adminDashboardcs = new AdminDashboardcs();
@@ -54,12 +48,12 @@ namespace InfoCare_Final
                 return;
             }
 
-            string hashedPassword = HashPassword(PasswordTextBox.Text);
+            string Password = PasswordTextBox.Text;
 
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "INSERT INTO tb_Infocare (D_firstname, D_lastname, D_username, D_Consultationfee, D_password, D_hashedpassword, Role) VALUES (@D_firstname, @D_lastname, @D_username, @D_consultationfee,  @D_password, @D_hashedpassword, @Role)";
+                string query = "INSERT INTO tb_Infocare (D_firstname, D_lastname, D_username, D_Consultationfee, D_password, Role) VALUES (@D_firstname, @D_lastname, @D_username, @D_consultationfee,  @D_password, @Role)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -67,8 +61,7 @@ namespace InfoCare_Final
                     cmd.Parameters.AddWithValue("@D_lastname", LastNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@D_username", UserNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@D_consultationfee", ConsultationFeeTextBox.Text);
-                    cmd.Parameters.AddWithValue("@D_password", PasswordTextBox.Text);
-                    cmd.Parameters.AddWithValue("@D_hashedpassword", hashedPassword);
+                    cmd.Parameters.AddWithValue("@D_password", Password);
                     cmd.Parameters.AddWithValue("@Role", "Doctor");
 
 

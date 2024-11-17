@@ -18,6 +18,7 @@ namespace InfoCare_Final
 
         private PatientList _patientlist;
         private DoctorList _doctorlist;
+        private AllAppointment _allappointment;
 
 
         //PatientList Dashboard
@@ -29,7 +30,7 @@ namespace InfoCare_Final
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT p_firstname, p_lastname, p_username, p_contact, p_password from tb_infocare WHERE role = 'Patient'";
+                    string query = "SELECT p_firstname as FirstName, p_lastname as LastName, p_username as UserName, p_contact as ContactNumber, p_password as Password from tb_infocare WHERE role = 'Patient'";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable patientTable = new DataTable();
                     adapter.Fill(patientTable);
@@ -56,6 +57,24 @@ namespace InfoCare_Final
             }
         }
 
+        //AllAppointment Dashboard
+        public class AllAppointment
+        {
+            private string _connectionstring = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+
+            public DataTable GetAllAppointment()
+            {
+                using (MySqlConnection connection = new MySqlConnection(_connectionstring))
+                {
+                    string query = "SELECT * from tb_infocare order by role desc";
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    DataTable AllAppointment = new DataTable();
+                    adapter.Fill(AllAppointment);
+                    return AllAppointment;
+                }
+            }
+        }
+
 
 
         public AdminDashboardcs()
@@ -63,6 +82,7 @@ namespace InfoCare_Final
             InitializeComponent();
             _patientlist = new PatientList();
             _doctorlist = new DoctorList();
+            _allappointment = new AllAppointment();
 
         }
 
@@ -141,6 +161,16 @@ namespace InfoCare_Final
 
         private void AppointmentHistoryButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataTable AllAppointment = _allappointment.GetAllAppointment();
+                AdminDashboardDatagridview.DataSource = AllAppointment;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error:{ex.Message} ");
+            }
+            AdminDashboardDatagridview.Visible = true;
             AppointmentListButtonChangeColor();
         }
 

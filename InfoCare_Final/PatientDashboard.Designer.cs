@@ -62,7 +62,7 @@
             label1 = new Label();
             ConsultationFeeLabel = new Label();
             BookSubmitButton = new Guna.UI2.WinForms.Guna2Button();
-            guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            AppointmentDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             DoctorComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -236,7 +236,7 @@
             BookPanel.Controls.Add(label1);
             BookPanel.Controls.Add(ConsultationFeeLabel);
             BookPanel.Controls.Add(BookSubmitButton);
-            BookPanel.Controls.Add(guna2DateTimePicker1);
+            BookPanel.Controls.Add(AppointmentDatePicker);
             BookPanel.Controls.Add(guna2CirclePictureBox3);
             BookPanel.Controls.Add(DoctorComboBox);
             BookPanel.Controls.Add(guna2HtmlLabel5);
@@ -285,21 +285,21 @@
             BookSubmitButton.Text = "SUBMIT";
             BookSubmitButton.Click += BookSubmitButton_Click;
             // 
-            // guna2DateTimePicker1
+            // AppointmentDatePicker
             // 
-            guna2DateTimePicker1.Checked = true;
-            guna2DateTimePicker1.CustomizableEdges = customizableEdges32;
-            guna2DateTimePicker1.FillColor = Color.FromArgb(102, 162, 205);
-            guna2DateTimePicker1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2DateTimePicker1.Format = DateTimePickerFormat.Long;
-            guna2DateTimePicker1.Location = new Point(157, 137);
-            guna2DateTimePicker1.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            guna2DateTimePicker1.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            guna2DateTimePicker1.ShadowDecoration.CustomizableEdges = customizableEdges33;
-            guna2DateTimePicker1.Size = new Size(250, 37);
-            guna2DateTimePicker1.TabIndex = 26;
-            guna2DateTimePicker1.Value = new DateTime(2024, 11, 16, 0, 38, 32, 59);
+            AppointmentDatePicker.Checked = true;
+            AppointmentDatePicker.CustomizableEdges = customizableEdges32;
+            AppointmentDatePicker.FillColor = Color.FromArgb(102, 162, 205);
+            AppointmentDatePicker.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AppointmentDatePicker.Format = DateTimePickerFormat.Long;
+            AppointmentDatePicker.Location = new Point(157, 137);
+            AppointmentDatePicker.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            AppointmentDatePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            AppointmentDatePicker.Name = "AppointmentDatePicker";
+            AppointmentDatePicker.ShadowDecoration.CustomizableEdges = customizableEdges33;
+            AppointmentDatePicker.Size = new Size(250, 37);
+            AppointmentDatePicker.TabIndex = 26;
+            AppointmentDatePicker.Value = new DateTime(2024, 11, 16, 0, 38, 32, 59);
             // 
             // guna2CirclePictureBox3
             // 
@@ -438,7 +438,7 @@
         private Label ConsultationFeeLabel;
         private Label label1;
         private Panel panel2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker AppointmentDatePicker;
         private Panel panel3;
         private DataGridView AppointmentDatagridview;
     }

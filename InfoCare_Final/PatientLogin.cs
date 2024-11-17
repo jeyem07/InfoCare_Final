@@ -36,7 +36,7 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "SELECT p_HashedPassword,Role FROM tb_infocare WHERE p_username = @p_username";
+                string query = "SELECT p_Password,Role FROM tb_infocare WHERE p_username = @p_username";
                 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -47,12 +47,11 @@ namespace InfoCare_Final
                         if (reader.Read())
                         {
                             
-                            string storedHashedPassword = reader["p_HashedPassword"].ToString();
+                            string storedPassword = reader["p_Password"].ToString();
                             
 
                             
-                            if (VerifyPassword(password, storedHashedPassword))
-                            {
+                           
                                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 
@@ -61,7 +60,7 @@ namespace InfoCare_Final
 
                                 this.Hide();
                                 return;
-                            }
+                            
                         }
 
 
@@ -71,10 +70,7 @@ namespace InfoCare_Final
             }
         }
 
-        private bool VerifyPassword(string enteredPassword, string storedHashedPassword)
-        {
-            return BCrypt.Net.BCrypt.Verify(enteredPassword, storedHashedPassword);
-        }
+        
 
         private void RegisterLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

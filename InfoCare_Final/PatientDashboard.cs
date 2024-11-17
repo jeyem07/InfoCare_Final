@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using System.Data;
-using Guna.UI2.WinForms.Internal;
-using System.Collections;
-using System.Security.Cryptography.X509Certificates;
 
 namespace InfoCare_Final
 {
@@ -22,6 +18,7 @@ namespace InfoCare_Final
         private const string DoctorComboBoxPlaceHolder = "Select a Doctor...";
 
         private string LoggedInUsername;
+
         public PatientDashboard(string username)
         {
             InitializeComponent();
@@ -30,7 +27,7 @@ namespace InfoCare_Final
 
         private void Logoutlabel_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Log out succesful");
+            MessageBox.Show("Log out successful");
             Home home = new Home();
             home.Show();
             this.Hide();
@@ -38,7 +35,7 @@ namespace InfoCare_Final
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Log out succesful");
+            MessageBox.Show("Log out successful");
             PatientLogin patientlogin = new PatientLogin();
             patientlogin.Show();
             this.Hide();
@@ -53,7 +50,7 @@ namespace InfoCare_Final
             {
                 conn.Open();
 
-                string query = "SELECT d_lastname, d_consultationfee from tb_infocare where role = 'doctor'";
+                string query = "SELECT d_lastname, d_consultationfee FROM tb_infocare WHERE role = 'doctor'";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader read = cmd.ExecuteReader();
 
@@ -65,34 +62,27 @@ namespace InfoCare_Final
 
                 while (read.Read())
                 {
-                    string LastName = read["d_lastname"].ToString();
-                    string ConsultationFee = read["d_Consultationfee"].ToString();
+                    string lastName = read["d_lastname"].ToString();
+                    string consultationFee = read["d_consultationfee"].ToString();
 
-                    DoctorComboBox.Items.Add(LastName);
-                    DoctorFees[LastName] = ConsultationFee;
+                    DoctorComboBox.Items.Add(lastName);
+                    DoctorFees[lastName] = consultationFee;
                 }
                 conn.Close();
-
             }
         }
 
         private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string SelectedDoctor = "";
+            string selectedDoctor = DoctorComboBox.SelectedItem?.ToString() ?? "";
 
-            if (DoctorComboBox.SelectedItem != null)
-            {
-                SelectedDoctor = DoctorComboBox.SelectedItem.ToString();
-            }
-
-            if (SelectedDoctor == "Select a Doctor...")
+            if (selectedDoctor == DoctorComboBoxPlaceHolder)
             {
                 ConsultationFeeLabel.Text = "";
             }
-
-            else if (DoctorFees.ContainsKey(SelectedDoctor))
+            else if (DoctorFees.ContainsKey(selectedDoctor))
             {
-                ConsultationFeeLabel.Text = DoctorFees[SelectedDoctor];
+                ConsultationFeeLabel.Text = DoctorFees[selectedDoctor];
             }
         }
 
@@ -104,21 +94,49 @@ namespace InfoCare_Final
                 return;
             }
 
-            string SelectedDoctor = DoctorComboBox.SelectedItem.ToString();
+            string patientName = PatientNameLabel.Text; 
+            string selectedDoctor = DoctorComboBox.SelectedItem.ToString();
             string consultationFee = ConsultationFeeLabel.Text;
-
+            DateTime appointmentDate = AppointmentDatePicker.Value; 
 
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
 
+                    string insertQuery = @"
+                        INSERT INTO tb_appointmenthistory (PatientName, DoctorName, ConsultationFee, AppointmentDate) 
+                        VALUES (@PatientName, @DoctorName, @ConsultationFee, @AppointmentDate);";
 
+                    using (MySqlCommand cmd = new MySqlCommand(insertQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@PatientName", patientName);
+                        cmd.Parameters.AddWithValue("@DoctorName", selectedDoctor);
+                        cmd.Parameters.AddWithValue("@ConsultationFee", consultationFee);
+                        cmd.Parameters.AddWithValue("@AppointmentDate", appointmentDate);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Appointment booked successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to book the appointment.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
         }
 
         private void PatientDashboard_Load(object sender, EventArgs e)
         {
-
             LoadPatientDetails();
         }
 
@@ -128,7 +146,7 @@ namespace InfoCare_Final
             {
                 conn.Open();
 
-                string query = "Select p_Firstname, p_lastname from tb_infocare where p_username = @p_username";
+                string query = "SELECT p_Firstname, p_lastname FROM tb_infocare WHERE p_username = @p_username";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@p_username", LoggedInUsername);
@@ -140,7 +158,6 @@ namespace InfoCare_Final
                             string firstName = reader["p_Firstname"].ToString();
                             string lastName = reader["p_Lastname"].ToString();
 
-
                             PatientNameLabel.Text = $"{lastName}, {firstName}";
                         }
                         else
@@ -150,40 +167,44 @@ namespace InfoCare_Final
                     }
                 }
             }
-
         }
 
         private void AppointmentHistoryButton_Click(object sender, EventArgs e)
         {
             AppointmentHistoryPanel.Visible = true;
+            BookPanel.Visible = false; 
 
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
-                AppointmentDatagridview.Visible = true;
-
-                conn.Open();
-
-                string query = "Select p_Firstname, p_lastname, p_Contact, D_Lastname, D_ConsultationFee from tb_infocare where p_username = @p_username";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@p_username", LoggedInUsername);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
+                    conn.Open();
 
-                    AppointmentDatagridview.DataSource = dataTable;
+                    string query = @"
+                    SELECT PatientName AS 'Patient Name', DoctorName AS 'Doctor Name', ConsultationFee AS 'Consultation Fee', AppointmentDate AS 'Appointment Date'
+                    FROM tb_AppointmentHistory
+                    WHERE PatientName = @PatientName;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        string patientName = PatientNameLabel.Text;
+
+                        cmd.Parameters.AddWithValue("@PatientName", patientName);
+
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        AppointmentDatagridview.DataSource = dataTable;
+                        AppointmentDatagridview.Visible = true;
+                    }
                 }
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading appointment history: " + ex.Message);
+                }
             }
-
-
-
-
-
         }
 
-
-
     }
-
 }
