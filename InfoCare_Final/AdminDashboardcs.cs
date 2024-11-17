@@ -30,7 +30,7 @@ namespace InfoCare_Final
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT p_firstname as FirstName, p_lastname as LastName, p_username as UserName, p_contact as ContactNumber, p_password as Password from tb_infocare WHERE role = 'Patient'";
+                    string query = "SELECT p_firstname as Firstname, p_lastname as Lastname, p_username as Username, p_contact as 'Contact Number', p_password as Password from tb_infocare WHERE role = 'Patient'";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable patientTable = new DataTable();
                     adapter.Fill(patientTable);
@@ -48,7 +48,7 @@ namespace InfoCare_Final
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT d_firstname, d_lastname, d_username, d_consultationfee, d_password from tb_infocare WHERE role = 'doctor'";
+                    string query = "SELECT d_firstname as Firstname, d_lastname as Lastname, d_username as Username, d_consultationfee as 'Consultation Fee', d_password as Password from tb_infocare WHERE role = 'doctor'";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable doctorTable = new DataTable();
                     adapter.Fill(doctorTable);
@@ -66,7 +66,7 @@ namespace InfoCare_Final
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT * from tb_infocare order by role desc";
+                    string query = "select patientname, doctorname, consultationfee, appointmentdate from tb_appointmenthistory;";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable AllAppointment = new DataTable();
                     adapter.Fill(AllAppointment);

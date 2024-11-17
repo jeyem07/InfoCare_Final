@@ -50,7 +50,7 @@ namespace InfoCare_Final
             {
                 conn.Open();
 
-                string query = "SELECT d_lastname, d_consultationfee FROM tb_infocare WHERE role = 'doctor'";
+                string query = "SELECT d_lastname, d_firstname, d_consultationfee FROM tb_infocare WHERE role = 'doctor'";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader read = cmd.ExecuteReader();
 
@@ -63,10 +63,12 @@ namespace InfoCare_Final
                 while (read.Read())
                 {
                     string lastName = read["d_lastname"].ToString();
+                    string firstName = read["d_firstname"].ToString();
+                    string fullName = $"{lastName}, {firstName} ";
                     string consultationFee = read["d_consultationfee"].ToString();
 
-                    DoctorComboBox.Items.Add(lastName);
-                    DoctorFees[lastName] = consultationFee;
+                    DoctorComboBox.Items.Add(fullName);
+                    DoctorFees[fullName] = consultationFee;
                 }
                 conn.Close();
             }

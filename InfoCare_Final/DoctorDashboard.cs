@@ -74,5 +74,41 @@ namespace InfoCare_Final
 
 
         }
+
+        private void ViewAppointmentsButton_Click(object sender, EventArgs e)
+        {
+
+            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            {
+                ViewAppointmentsPanel.Visible = true; 
+                try
+                {
+                    conn.Open();
+
+                    string query = @" SELECT PatientName AS 'Patient Name', DoctorName AS 'Doctor Name', ConsultationFee AS 'Consultation Fee', AppointmentDate AS 'Appointment Date'
+                                      FROM tb_AppointmentHistory
+                                      WHERE DoctorName = @DoctorName";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        string doctorName = DoctorNameLabel.Text;
+
+                        cmd.Parameters.AddWithValue("@DoctorName", doctorName);
+
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        ViewAppointmentsDatagrid.DataSource = dataTable;
+                        ViewAppointmentsDatagrid.Visible = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading appointment history: " + ex.Message);
+                }
+            }
+        }
     }
 }
+

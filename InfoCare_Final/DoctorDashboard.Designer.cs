@@ -34,9 +34,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -51,15 +48,15 @@
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             ViewAppointmentsPanel = new Panel();
-            ViewAppointmentsDatagrid = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             LogoutButton = new Guna.UI2.WinForms.Guna2Button();
+            ViewAppointmentsDatagrid = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
             ViewAppointmentsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ViewAppointmentsDatagrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ViewAppointmentsDatagrid).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -90,6 +87,7 @@
             ViewAppointmentsButton.Size = new Size(183, 57);
             ViewAppointmentsButton.TabIndex = 25;
             ViewAppointmentsButton.Text = "VIEW APPOINTMENTS";
+            ViewAppointmentsButton.Click += ViewAppointmentsButton_Click;
             // 
             // PatientinformationButton
             // 
@@ -187,58 +185,6 @@
             ViewAppointmentsPanel.TabIndex = 33;
             ViewAppointmentsPanel.Visible = false;
             // 
-            // ViewAppointmentsDatagrid
-            // 
-            dataGridViewCellStyle1.BackColor = Color.White;
-            ViewAppointmentsDatagrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            ViewAppointmentsDatagrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            ViewAppointmentsDatagrid.ColumnHeadersHeight = 4;
-            ViewAppointmentsDatagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            ViewAppointmentsDatagrid.DefaultCellStyle = dataGridViewCellStyle3;
-            ViewAppointmentsDatagrid.GridColor = Color.FromArgb(231, 229, 255);
-            ViewAppointmentsDatagrid.Location = new Point(3, 3);
-            ViewAppointmentsDatagrid.Name = "ViewAppointmentsDatagrid";
-            ViewAppointmentsDatagrid.RowHeadersVisible = false;
-            ViewAppointmentsDatagrid.RowHeadersWidth = 51;
-            ViewAppointmentsDatagrid.RowTemplate.Height = 29;
-            ViewAppointmentsDatagrid.Size = new Size(566, 288);
-            ViewAppointmentsDatagrid.TabIndex = 0;
-            ViewAppointmentsDatagrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            ViewAppointmentsDatagrid.ThemeStyle.AlternatingRowsStyle.Font = null;
-            ViewAppointmentsDatagrid.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            ViewAppointmentsDatagrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            ViewAppointmentsDatagrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            ViewAppointmentsDatagrid.ThemeStyle.BackColor = Color.White;
-            ViewAppointmentsDatagrid.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            ViewAppointmentsDatagrid.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            ViewAppointmentsDatagrid.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            ViewAppointmentsDatagrid.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewAppointmentsDatagrid.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            ViewAppointmentsDatagrid.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            ViewAppointmentsDatagrid.ThemeStyle.HeaderStyle.Height = 4;
-            ViewAppointmentsDatagrid.ThemeStyle.ReadOnly = false;
-            ViewAppointmentsDatagrid.ThemeStyle.RowsStyle.BackColor = Color.White;
-            ViewAppointmentsDatagrid.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            ViewAppointmentsDatagrid.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewAppointmentsDatagrid.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            ViewAppointmentsDatagrid.ThemeStyle.RowsStyle.Height = 29;
-            ViewAppointmentsDatagrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            ViewAppointmentsDatagrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            // 
             // guna2PictureBox1
             // 
             guna2PictureBox1.CustomizableEdges = customizableEdges7;
@@ -271,6 +217,16 @@
             LogoutButton.TabIndex = 23;
             LogoutButton.Click += guna2Button1_Click;
             // 
+            // ViewAppointmentsDatagrid
+            // 
+            ViewAppointmentsDatagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ViewAppointmentsDatagrid.Location = new Point(3, 3);
+            ViewAppointmentsDatagrid.Name = "ViewAppointmentsDatagrid";
+            ViewAppointmentsDatagrid.RowHeadersWidth = 51;
+            ViewAppointmentsDatagrid.RowTemplate.Height = 29;
+            ViewAppointmentsDatagrid.Size = new Size(566, 289);
+            ViewAppointmentsDatagrid.TabIndex = 0;
+            // 
             // DoctorDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -294,8 +250,8 @@
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
             ViewAppointmentsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ViewAppointmentsDatagrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ViewAppointmentsDatagrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -313,7 +269,7 @@
         private Panel ViewAppointmentsPanel;
         private Guna.UI2.WinForms.Guna2Button ViewAppointmentsButton;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2DataGridView ViewAppointmentsDatagrid;
         private Guna.UI2.WinForms.Guna2Button LogoutButton;
+        private DataGridView ViewAppointmentsDatagrid;
     }
 }
