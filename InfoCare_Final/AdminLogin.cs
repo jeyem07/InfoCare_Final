@@ -37,7 +37,7 @@ namespace InfoCare_Final
             if (username == "admin" && password == "admin123")
             {
                 MessageBox.Show("Login Suucesfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
+                this.Close();
 
                 AdminDashboardcs adminDashboardcs = new AdminDashboardcs();
                 adminDashboardcs.Show();
@@ -71,7 +71,7 @@ namespace InfoCare_Final
         {
             Home home = new Home();
             home.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

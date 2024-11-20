@@ -14,8 +14,8 @@ namespace InfoCare_Final
 {
     public partial class PatientLogin : Form
     {
-        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
-        private string LoggedinUsername;
+        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
+       
 
         public PatientLogin()
         {
@@ -36,54 +36,52 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "SELECT p_Password,Role FROM tb_infocare WHERE p_username = @p_username";
+                string query = "SELECT Password,Role FROM tb_infocare WHERE username = @username and role = 'patient'";
                 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@p_username", username);
+                    cmd.Parameters.AddWithValue("@username", username);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
                             
-                            string storedPassword = reader["p_Password"].ToString();
+                            string storedPassword = reader["Password"].ToString();
                             
-
-                            
-                           
                                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 
                                 PatientDashboard patientDashboard = new PatientDashboard(username);
                                 patientDashboard.Show();
 
-                                this.Hide();
+                                this.Close();
                                 return;
                             
                         }
 
-
+                        else
+                        {
+                            MessageBox.Show("Invalid Credentials!", "Try Again.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
 
             }
         }
 
-        
-
         private void RegisterLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             PatientRegister patientRegister = new PatientRegister();
             patientRegister.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
             Home home = new Home();
             home.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void ShowpasswordCheckbox_CheckedChanged(object sender, EventArgs e)

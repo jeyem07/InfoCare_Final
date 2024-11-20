@@ -13,7 +13,7 @@ namespace InfoCare_Final
 {
     public partial class DoctorLogin : Form
     {
-        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
         public DoctorLogin()
         {
@@ -34,12 +34,12 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "SELECT D_password FROM tb_infocare WHERE D_username = @D_username";
+                string query = "SELECT password FROM tb_infocare WHERE username = @username and role = 'doctor'";
                
                 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@D_username", username);
+                    cmd.Parameters.AddWithValue("@username", username);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -51,8 +51,12 @@ namespace InfoCare_Final
                                 DoctorDashboard doctorDashboard = new DoctorDashboard(username);
                                 doctorDashboard.Show();
 
-                                this.Hide();
+                                this.Close();
                                 return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Credentials!", "Try Again.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
@@ -78,7 +82,7 @@ namespace InfoCare_Final
         {
             Home home = new Home();
             home.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

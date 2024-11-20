@@ -13,7 +13,7 @@ namespace InfoCare_Final
 {
     public partial class PatientDashboard : Form
     {
-        private string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+        private string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
         private Dictionary<string, string> DoctorFees = new Dictionary<string, string>();
         private const string DoctorComboBoxPlaceHolder = "Select a Doctor...";
 
@@ -29,16 +29,17 @@ namespace InfoCare_Final
         {
             MessageBox.Show("Log out successful");
             Home home = new Home();
+            this.Close();
             home.Show();
-            this.Hide();
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Log out successful");
             PatientLogin patientlogin = new PatientLogin();
+            this.Close();
             patientlogin.Show();
-            this.Hide();
+
         }
 
         private void BookAppointmentButton_Click(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace InfoCare_Final
             {
                 conn.Open();
 
-                string query = "SELECT d_lastname, d_firstname, d_consultationfee FROM tb_infocare WHERE role = 'doctor'";
+                string query = "SELECT lastname, firstname, consultationfee FROM tb_infocare WHERE role = 'doctor'";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader read = cmd.ExecuteReader();
 
@@ -62,10 +63,10 @@ namespace InfoCare_Final
 
                 while (read.Read())
                 {
-                    string lastName = read["d_lastname"].ToString();
-                    string firstName = read["d_firstname"].ToString();
+                    string lastName = read["lastname"].ToString();
+                    string firstName = read["firstname"].ToString();
                     string fullName = $"{lastName}, {firstName} ";
-                    string consultationFee = read["d_consultationfee"].ToString();
+                    string consultationFee = read["consultationfee"].ToString();
 
                     DoctorComboBox.Items.Add(fullName);
                     DoctorFees[fullName] = consultationFee;
@@ -96,10 +97,10 @@ namespace InfoCare_Final
                 return;
             }
 
-            string patientName = PatientNameLabel.Text; 
+            string patientName = PatientNameLabel.Text;
             string selectedDoctor = DoctorComboBox.SelectedItem.ToString();
             string consultationFee = ConsultationFeeLabel.Text;
-            DateTime appointmentDate = AppointmentDatePicker.Value; 
+            DateTime appointmentDate = AppointmentDatePicker.Value;
 
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
@@ -139,7 +140,8 @@ namespace InfoCare_Final
 
         private void PatientDashboard_Load(object sender, EventArgs e)
         {
-            LoadPatientDetails();
+            LoadPatientDetails();            
+            AppointmentDatePicker.MinDate = DateTime.Today;
         }
 
         private void LoadPatientDetails()
@@ -148,17 +150,17 @@ namespace InfoCare_Final
             {
                 conn.Open();
 
-                string query = "SELECT p_Firstname, p_lastname FROM tb_infocare WHERE p_username = @p_username";
+                string query = "SELECT Firstname, lastname FROM tb_infocare WHERE username = @username";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@p_username", LoggedInUsername);
+                    cmd.Parameters.AddWithValue("@username", LoggedInUsername);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            string firstName = reader["p_Firstname"].ToString();
-                            string lastName = reader["p_Lastname"].ToString();
+                            string firstName = reader["Firstname"].ToString();
+                            string lastName = reader["Lastname"].ToString();
 
                             PatientNameLabel.Text = $"{lastName}, {firstName}";
                         }
@@ -174,7 +176,7 @@ namespace InfoCare_Final
         private void AppointmentHistoryButton_Click(object sender, EventArgs e)
         {
             AppointmentHistoryPanel.Visible = true;
-            BookPanel.Visible = false; 
+            BookPanel.Visible = false;
 
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {

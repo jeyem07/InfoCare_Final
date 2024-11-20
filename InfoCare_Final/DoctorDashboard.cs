@@ -13,7 +13,7 @@ namespace InfoCare_Final
 {
     public partial class DoctorDashboard : Form
     {
-        private string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+        private string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
         private string LoggedInUsername;
 
         public DoctorDashboard(string username)
@@ -26,8 +26,8 @@ namespace InfoCare_Final
         {
             MessageBox.Show("Log out succesful");
             DoctorLogin doctorLogin = new DoctorLogin();
+            this.Close();
             doctorLogin.Show();
-            this.Hide();
         }
 
         private void guna2HtmlLabel3_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace InfoCare_Final
             MessageBox.Show("Log out succesful");
             DoctorLogin doctorLogin = new DoctorLogin();
             doctorLogin.Show();
-            this.Hide();
+            this.Close();
         }
         private void DoctorDashboard_Load(object sender, EventArgs e)
         {
@@ -48,18 +48,18 @@ namespace InfoCare_Final
             {
                 conn.Open();
 
-                string query = "Select d_Firstname, d_lastname from tb_infocare where d_username = @d_username";
+                string query = "Select Firstname, lastname from tb_infocare where username = @username";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@d_username", LoggedInUsername);
+                    cmd.Parameters.AddWithValue("@username", LoggedInUsername);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            string firstName = reader["d_Firstname"].ToString();
-                            string lastName = reader["d_Lastname"].ToString();
+                            string firstName = reader["Firstname"].ToString();
+                            string lastName = reader["Lastname"].ToString();
 
 
                             DoctorNameLabel.Text = $"{lastName}, {firstName}";
@@ -80,7 +80,7 @@ namespace InfoCare_Final
 
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
-                ViewAppointmentsPanel.Visible = true; 
+                ViewAppointmentsPanel.Visible = true;
                 try
                 {
                     conn.Open();

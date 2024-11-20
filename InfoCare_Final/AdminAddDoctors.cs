@@ -14,7 +14,7 @@ namespace InfoCare_Final
 {
     public partial class AdminAddDoctors : Form
     {
-        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
         public AdminAddDoctors()
         {
@@ -53,15 +53,16 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "INSERT INTO tb_Infocare (D_firstname, D_lastname, D_username, D_Consultationfee, D_password, Role) VALUES (@D_firstname, @D_lastname, @D_username, @D_consultationfee,  @D_password, @Role)";
+                string query = "INSERT INTO tb_Infocare (firstname, lastname, username, Consultationfee, Contactnumber, password, Role) VALUES (@firstname, @lastname, @username, @consultationfee, @contactnumber,  @password, @Role)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@D_firstname", FirstNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@D_lastname", LastNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@D_username", UserNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@D_consultationfee", ConsultationFeeTextBox.Text);
-                    cmd.Parameters.AddWithValue("@D_password", Password);
+                    cmd.Parameters.AddWithValue("@firstname", FirstNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@lastname", LastNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@Username", UserNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@consultationfee", ConsultationFeeTextBox.Text);
+                    cmd.Parameters.AddWithValue("@contactnumber", Contactnumbertextbox.Text);
+                    cmd.Parameters.AddWithValue("@password", Password);
                     cmd.Parameters.AddWithValue("@Role", "Doctor");
 
 

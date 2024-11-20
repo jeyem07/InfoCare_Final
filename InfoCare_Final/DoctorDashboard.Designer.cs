@@ -48,15 +48,15 @@
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             ViewAppointmentsPanel = new Panel();
+            ViewAppointmentsDatagrid = new DataGridView();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             LogoutButton = new Guna.UI2.WinForms.Guna2Button();
-            ViewAppointmentsDatagrid = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
             ViewAppointmentsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ViewAppointmentsDatagrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -145,9 +145,9 @@
             guna2HtmlLabel2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
             guna2HtmlLabel2.Location = new Point(292, 44);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(75, 39);
+            guna2HtmlLabel2.Size = new Size(78, 39);
             guna2HtmlLabel2.TabIndex = 26;
-            guna2HtmlLabel2.Text = "HELLO, ";
+            guna2HtmlLabel2.Text = "HELLO!";
             // 
             // guna2CirclePictureBox1
             // 
@@ -185,6 +185,16 @@
             ViewAppointmentsPanel.TabIndex = 33;
             ViewAppointmentsPanel.Visible = false;
             // 
+            // ViewAppointmentsDatagrid
+            // 
+            ViewAppointmentsDatagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ViewAppointmentsDatagrid.Location = new Point(3, 3);
+            ViewAppointmentsDatagrid.Name = "ViewAppointmentsDatagrid";
+            ViewAppointmentsDatagrid.RowHeadersWidth = 51;
+            ViewAppointmentsDatagrid.RowTemplate.Height = 29;
+            ViewAppointmentsDatagrid.Size = new Size(566, 289);
+            ViewAppointmentsDatagrid.TabIndex = 0;
+            // 
             // guna2PictureBox1
             // 
             guna2PictureBox1.CustomizableEdges = customizableEdges7;
@@ -217,16 +227,6 @@
             LogoutButton.TabIndex = 23;
             LogoutButton.Click += guna2Button1_Click;
             // 
-            // ViewAppointmentsDatagrid
-            // 
-            ViewAppointmentsDatagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ViewAppointmentsDatagrid.Location = new Point(3, 3);
-            ViewAppointmentsDatagrid.Name = "ViewAppointmentsDatagrid";
-            ViewAppointmentsDatagrid.RowHeadersWidth = 51;
-            ViewAppointmentsDatagrid.RowTemplate.Height = 29;
-            ViewAppointmentsDatagrid.Size = new Size(566, 289);
-            ViewAppointmentsDatagrid.TabIndex = 0;
-            // 
             // DoctorDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -250,8 +250,8 @@
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
             ViewAppointmentsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)ViewAppointmentsDatagrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

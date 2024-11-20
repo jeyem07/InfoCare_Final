@@ -122,9 +122,9 @@
             guna2HtmlLabel2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
             guna2HtmlLabel2.Location = new Point(333, 54);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(75, 39);
+            guna2HtmlLabel2.Size = new Size(78, 39);
             guna2HtmlLabel2.TabIndex = 38;
-            guna2HtmlLabel2.Text = "HELLO, ";
+            guna2HtmlLabel2.Text = "HELLO!";
             // 
             // panel1
             // 
@@ -290,7 +290,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(860, 518);
+            ClientSize = new Size(860, 498);
             ControlBox = false;
             Controls.Add(AdminDashboardDatagridview);
             Controls.Add(guna2HtmlLabel3);

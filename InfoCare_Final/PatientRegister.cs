@@ -23,7 +23,7 @@ namespace InfoCare_Final
             InitializeComponent();
         }
 
-        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -45,15 +45,15 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "INSERT INTO tb_infocare (p_firstname, p_Lastname, p_username, p_Contact, p_Password, Role) VALUES (@p_firstname, @p_Lastname, @p_username, @p_contactnumber,  @p_Password, @Role)";
+                string query = "INSERT INTO tb_infocare (Firstname, Lastname, username, Contactnumber, Password, Role) VALUES (@firstname, @Lastname, @username, @contactnumber,  @Password, @Role)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@p_firstname", FirstnameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_Lastname", LastnameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_username", UsernameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_contactnumber", ContactNumberTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_Password", Password);
+                    cmd.Parameters.AddWithValue("@firstname", FirstnameTextbox.Text);
+                    cmd.Parameters.AddWithValue("@Lastname", LastnameTextbox.Text);
+                    cmd.Parameters.AddWithValue("@username", UsernameTextbox.Text);
+                    cmd.Parameters.AddWithValue("@contactnumber", ContactNumberTextbox.Text);
+                    cmd.Parameters.AddWithValue("@Password", Password);
                     cmd.Parameters.AddWithValue("@Role", "Patient");
                     try
                     {
@@ -62,7 +62,7 @@ namespace InfoCare_Final
 
                         PatientLogin patientLogin = new PatientLogin();
                         patientLogin.Show();
-                        this.Hide();
+                        this.Close();
                     }
                     catch (MySqlException ex)
                     {
@@ -80,7 +80,7 @@ namespace InfoCare_Final
             PatientLogin patientLogin = new PatientLogin();
             patientLogin.Show();
 
-            this.Hide();
+            this.Close();
 
         }
 
@@ -88,7 +88,7 @@ namespace InfoCare_Final
         {
             Home home = new Home();
             home.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void ShowpasswordCheckbox_CheckedChanged(object sender, EventArgs e)

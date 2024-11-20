@@ -14,7 +14,7 @@ namespace InfoCare_Final
 {
     public partial class AdminDashboardcs : Form
     {
-        private string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+
 
         private PatientList _patientlist;
         private DoctorList _doctorlist;
@@ -24,13 +24,13 @@ namespace InfoCare_Final
         //PatientList Dashboard
         public class PatientList
         {
-            private string _connectionstring = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+            private string _connectionstring = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
             public DataTable GetPatients()
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT p_firstname as Firstname, p_lastname as Lastname, p_username as Username, p_contact as 'Contact Number', p_password as Password from tb_infocare WHERE role = 'Patient'";
+                    string query = "SELECT firstname as Firstname, lastname as Lastname, username as Username, contactnumber as 'Contact Number', password as Password from tb_infocare WHERE role = 'Patient'";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable patientTable = new DataTable();
                     adapter.Fill(patientTable);
@@ -42,13 +42,13 @@ namespace InfoCare_Final
         //DoctorList Dashboard
         public class DoctorList
         {
-            private string _connectionstring = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+            private string _connectionstring = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
             public DataTable GetDoctors()
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT d_firstname as Firstname, d_lastname as Lastname, d_username as Username, d_consultationfee as 'Consultation Fee', d_password as Password from tb_infocare WHERE role = 'doctor'";
+                    string query = "SELECT firstname as Firstname, lastname as Lastname, username as Username, consultationfee as 'Consultation Fee', password as Password from tb_infocare WHERE role = 'doctor'";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable doctorTable = new DataTable();
                     adapter.Fill(doctorTable);
@@ -60,7 +60,7 @@ namespace InfoCare_Final
         //AllAppointment Dashboard
         public class AllAppointment
         {
-            private string _connectionstring = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+            private string _connectionstring = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
             public DataTable GetAllAppointment()
             {
@@ -86,17 +86,13 @@ namespace InfoCare_Final
 
         }
 
-        private string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
-
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Log out succesful");
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.Show();
-            this.Hide();
+            this.Close();
+
         }
 
         private void AddDoctorButton_Click(object sender, EventArgs e)
@@ -113,6 +109,7 @@ namespace InfoCare_Final
                 managedoctor.BringToFront();
                 managedoctor.Focus();
             }
+
             AddDoctorButtonChangeColor();
 
         }
@@ -122,7 +119,7 @@ namespace InfoCare_Final
             MessageBox.Show("Log out succesful");
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void PatientListButton_Click(object sender, EventArgs e)
