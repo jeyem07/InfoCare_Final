@@ -53,32 +53,47 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "INSERT INTO tb_Infocare (firstname, lastname, username, Consultationfee, Contactnumber, password, Role) VALUES (@firstname, @lastname, @username, @consultationfee, @contactnumber,  @password, @Role)";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                string UserRepQuery = "SELECT COUNT(*) from tb_infocare where username = @username";
+
+                using (MySqlCommand checkCmd = new MySqlCommand(UserRepQuery, conn))
                 {
-                    cmd.Parameters.AddWithValue("@firstname", FirstNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@lastname", LastNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@Username", UserNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@consultationfee", ConsultationFeeTextBox.Text);
-                    cmd.Parameters.AddWithValue("@contactnumber", Contactnumbertextbox.Text);
-                    cmd.Parameters.AddWithValue("@password", Password);
-                    cmd.Parameters.AddWithValue("@Role", "Doctor");
+                    checkCmd.Parameters.AddWithValue("@username", UserNameTextBox.Text);
 
-
-                    try
+                    int userCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    if (userCount > 0)
                     {
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Registration successful!");
+                        MessageBox.Show("The username is already taken. Please choose a different one.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    string query = "INSERT INTO tb_Infocare (firstname, lastname, username, Consultationfee, Contactnumber, password, Role) VALUES (@firstname, @lastname, @username, @consultationfee, @contactnumber,  @password, @Role)";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@firstname", FirstNameTextBox.Text);
+                        cmd.Parameters.AddWithValue("@lastname", LastNameTextBox.Text);
+                        cmd.Parameters.AddWithValue("@Username", UserNameTextBox.Text);
+                        cmd.Parameters.AddWithValue("@consultationfee", ConsultationFeeTextBox.Text);
+                        cmd.Parameters.AddWithValue("@contactnumber", Contactnumbertextbox.Text);
+                        cmd.Parameters.AddWithValue("@password", Password);
+                        cmd.Parameters.AddWithValue("@Role", "Doctor");
+
+
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Registration successful!");
+
+
+                        }
+                        catch (MySqlException ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
 
 
                     }
-                    catch (MySqlException ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-
-
                 }
             }
         }

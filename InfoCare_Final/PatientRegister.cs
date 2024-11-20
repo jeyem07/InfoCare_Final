@@ -45,33 +45,46 @@ namespace InfoCare_Final
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 conn.Open();
-                string query = "INSERT INTO tb_infocare (Firstname, Lastname, username, Contactnumber, Password, Role) VALUES (@firstname, @Lastname, @username, @contactnumber,  @Password, @Role)";
+                string UserRepQuery = "SELECT COUNT(*) from tb_infocare where username = @username";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand checkCmd = new MySqlCommand(UserRepQuery, conn))
                 {
-                    cmd.Parameters.AddWithValue("@firstname", FirstnameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@Lastname", LastnameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@username", UsernameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@contactnumber", ContactNumberTextbox.Text);
-                    cmd.Parameters.AddWithValue("@Password", Password);
-                    cmd.Parameters.AddWithValue("@Role", "Patient");
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Registration successful!");
+                    checkCmd.Parameters.AddWithValue("@username", UsernameTextbox.Text);
 
-                        PatientLogin patientLogin = new PatientLogin();
-                        patientLogin.Show();
-                        this.Close();
-                    }
-                    catch (MySqlException ex)
+                    int userCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    if (userCount > 0)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        MessageBox.Show("The username is already taken. Please choose a different one.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
+
+                    string query = "INSERT INTO tb_infocare (Firstname, Lastname, username, Contactnumber, Password, Role) VALUES (@firstname, @Lastname, @username, @contactnumber,  @Password, @Role)";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@firstname", FirstnameTextbox.Text);
+                        cmd.Parameters.AddWithValue("@Lastname", LastnameTextbox.Text);
+                        cmd.Parameters.AddWithValue("@username", UsernameTextbox.Text);
+                        cmd.Parameters.AddWithValue("@contactnumber", ContactNumberTextbox.Text);
+                        cmd.Parameters.AddWithValue("@Password", Password);
+                        cmd.Parameters.AddWithValue("@Role", "Patient");
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Registration successful!");
+
+                            PatientLogin patientLogin = new PatientLogin();
+                            patientLogin.Show();
+                            this.Close();
+                        }
+                        catch (MySqlException ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                    }
+
                 }
-
             }
-
 
         }
 
