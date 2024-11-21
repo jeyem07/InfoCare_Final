@@ -47,6 +47,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             PatientNameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -59,10 +61,8 @@
             AppointmentHistoryButton = new Guna.UI2.WinForms.Guna2Button();
             BookAppointmentButton = new Guna.UI2.WinForms.Guna2Button();
             BookPanel = new Panel();
-            label2 = new Label();
-            panel4 = new Panel();
-            appointmentTimelabel = new Label();
-            panel5 = new Panel();
+            panel3 = new Panel();
+            TimeCombobox = new Guna.UI2.WinForms.Guna2ComboBox();
             label1 = new Label();
             ConsultationFeeLabel = new Label();
             BookSubmitButton = new Guna.UI2.WinForms.Guna2Button();
@@ -71,7 +71,6 @@
             DoctorComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             panel2 = new Panel();
-            panel3 = new Panel();
             AppointmentHistoryPanel = new Guna.UI2.WinForms.Guna2Panel();
             AppointmentDatagridview = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
@@ -79,9 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             panel1.SuspendLayout();
             BookPanel.SuspendLayout();
-            panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
-            panel2.SuspendLayout();
             AppointmentHistoryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AppointmentDatagridview).BeginInit();
             SuspendLayout();
@@ -236,8 +233,7 @@
             // 
             // BookPanel
             // 
-            BookPanel.Controls.Add(label2);
-            BookPanel.Controls.Add(panel4);
+            BookPanel.Controls.Add(TimeCombobox);
             BookPanel.Controls.Add(label1);
             BookPanel.Controls.Add(ConsultationFeeLabel);
             BookPanel.Controls.Add(BookSubmitButton);
@@ -246,51 +242,38 @@
             BookPanel.Controls.Add(DoctorComboBox);
             BookPanel.Controls.Add(guna2HtmlLabel5);
             BookPanel.Controls.Add(panel2);
+            BookPanel.Controls.Add(panel3);
             BookPanel.Location = new Point(248, 124);
             BookPanel.Name = "BookPanel";
             BookPanel.Size = new Size(574, 308);
             BookPanel.TabIndex = 23;
             BookPanel.Visible = false;
             // 
-            // label2
+            // panel3
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Location = new Point(382, 126);
-            label2.Name = "label2";
-            label2.Size = new Size(134, 20);
-            label2.TabIndex = 31;
-            label2.Text = "Appointment Time";
+            panel3.BackColor = Color.White;
+            panel3.Location = new Point(398, 67);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(95, 36);
+            panel3.TabIndex = 0;
             // 
-            // panel4
+            // TimeCombobox
             // 
-            panel4.BackColor = SystemColors.AppWorkspace;
-            panel4.Controls.Add(appointmentTimelabel);
-            panel4.Controls.Add(panel5);
-            panel4.ForeColor = SystemColors.ActiveBorder;
-            panel4.Location = new Point(354, 146);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(189, 36);
-            panel4.TabIndex = 32;
-            // 
-            // appointmentTimelabel
-            // 
-            appointmentTimelabel.AutoSize = true;
-            appointmentTimelabel.BackColor = Color.White;
-            appointmentTimelabel.Location = new Point(66, 7);
-            appointmentTimelabel.Name = "appointmentTimelabel";
-            appointmentTimelabel.Size = new Size(50, 20);
-            appointmentTimelabel.TabIndex = 0;
-            appointmentTimelabel.Text = "label3";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = SystemColors.Control;
-            panel5.ForeColor = SystemColors.ActiveBorder;
-            panel5.Location = new Point(3, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(183, 30);
-            panel5.TabIndex = 31;
+            TimeCombobox.BackColor = Color.Transparent;
+            TimeCombobox.CustomizableEdges = customizableEdges11;
+            TimeCombobox.DrawMode = DrawMode.OwnerDrawFixed;
+            TimeCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            TimeCombobox.FocusedColor = Color.FromArgb(94, 148, 255);
+            TimeCombobox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            TimeCombobox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            TimeCombobox.ForeColor = Color.FromArgb(68, 88, 112);
+            TimeCombobox.ItemHeight = 30;
+            TimeCombobox.Items.AddRange(new object[] { "Select a time slot." });
+            TimeCombobox.Location = new Point(45, 148);
+            TimeCombobox.Name = "TimeCombobox";
+            TimeCombobox.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            TimeCombobox.Size = new Size(231, 36);
+            TimeCombobox.TabIndex = 61;
             // 
             // label1
             // 
@@ -312,7 +295,7 @@
             // BookSubmitButton
             // 
             BookSubmitButton.BorderRadius = 20;
-            BookSubmitButton.CustomizableEdges = customizableEdges11;
+            BookSubmitButton.CustomizableEdges = customizableEdges13;
             BookSubmitButton.DisabledState.BorderColor = Color.DarkGray;
             BookSubmitButton.DisabledState.CustomBorderColor = Color.DarkGray;
             BookSubmitButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -322,7 +305,7 @@
             BookSubmitButton.ForeColor = Color.Black;
             BookSubmitButton.Location = new Point(421, 249);
             BookSubmitButton.Name = "BookSubmitButton";
-            BookSubmitButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            BookSubmitButton.ShadowDecoration.CustomizableEdges = customizableEdges14;
             BookSubmitButton.Size = new Size(122, 43);
             BookSubmitButton.TabIndex = 27;
             BookSubmitButton.Text = "SUBMIT";
@@ -331,15 +314,15 @@
             // AppointmentDatePicker
             // 
             AppointmentDatePicker.Checked = true;
-            AppointmentDatePicker.CustomizableEdges = customizableEdges13;
+            AppointmentDatePicker.CustomizableEdges = customizableEdges15;
             AppointmentDatePicker.FillColor = Color.FromArgb(102, 162, 205);
             AppointmentDatePicker.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             AppointmentDatePicker.Format = DateTimePickerFormat.Long;
-            AppointmentDatePicker.Location = new Point(88, 142);
+            AppointmentDatePicker.Location = new Point(293, 148);
             AppointmentDatePicker.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             AppointmentDatePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             AppointmentDatePicker.Name = "AppointmentDatePicker";
-            AppointmentDatePicker.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            AppointmentDatePicker.ShadowDecoration.CustomizableEdges = customizableEdges16;
             AppointmentDatePicker.Size = new Size(250, 37);
             AppointmentDatePicker.TabIndex = 26;
             AppointmentDatePicker.Value = new DateTime(2024, 11, 16, 0, 38, 32, 59);
@@ -350,7 +333,7 @@
             guna2CirclePictureBox3.ImageRotate = 0F;
             guna2CirclePictureBox3.Location = new Point(370, 73);
             guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
-            guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges17;
             guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox3.Size = new Size(23, 24);
             guna2CirclePictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -360,7 +343,7 @@
             // DoctorComboBox
             // 
             DoctorComboBox.BackColor = Color.Transparent;
-            DoctorComboBox.CustomizableEdges = customizableEdges16;
+            DoctorComboBox.CustomizableEdges = customizableEdges18;
             DoctorComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             DoctorComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             DoctorComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -370,7 +353,7 @@
             DoctorComboBox.ItemHeight = 30;
             DoctorComboBox.Location = new Point(115, 67);
             DoctorComboBox.Name = "DoctorComboBox";
-            DoctorComboBox.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            DoctorComboBox.ShadowDecoration.CustomizableEdges = customizableEdges19;
             DoctorComboBox.Size = new Size(182, 36);
             DoctorComboBox.TabIndex = 23;
             DoctorComboBox.SelectedIndexChanged += DoctorComboBox_SelectedIndexChanged;
@@ -388,27 +371,19 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(panel3);
             panel2.ForeColor = SystemColors.ActiveBorder;
             panel2.Location = new Point(398, 67);
             panel2.Name = "panel2";
             panel2.Size = new Size(95, 36);
             panel2.TabIndex = 30;
             // 
-            // panel3
-            // 
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(95, 36);
-            panel3.TabIndex = 0;
-            // 
             // AppointmentHistoryPanel
             // 
             AppointmentHistoryPanel.Controls.Add(AppointmentDatagridview);
-            AppointmentHistoryPanel.CustomizableEdges = customizableEdges18;
+            AppointmentHistoryPanel.CustomizableEdges = customizableEdges20;
             AppointmentHistoryPanel.Location = new Point(248, 124);
             AppointmentHistoryPanel.Name = "AppointmentHistoryPanel";
-            AppointmentHistoryPanel.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            AppointmentHistoryPanel.ShadowDecoration.CustomizableEdges = customizableEdges21;
             AppointmentHistoryPanel.Size = new Size(574, 333);
             AppointmentHistoryPanel.TabIndex = 28;
             AppointmentHistoryPanel.Visible = false;
@@ -450,10 +425,7 @@
             panel1.PerformLayout();
             BookPanel.ResumeLayout(false);
             BookPanel.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
-            panel2.ResumeLayout(false);
             AppointmentHistoryPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)AppointmentDatagridview).EndInit();
             ResumeLayout(false);
@@ -485,9 +457,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker AppointmentDatePicker;
         private Panel panel3;
         private DataGridView AppointmentDatagridview;
-        private Label label2;
-        private Panel panel4;
-        private Panel panel5;
-        private Label appointmentTimelabel;
+        private Guna.UI2.WinForms.Guna2ComboBox TimeCombobox;
     }
 }

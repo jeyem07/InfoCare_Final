@@ -391,6 +391,7 @@
             Controls.Add(guna2CirclePictureBox3);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2PictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AdminAddDoctors";
             StartPosition = FormStartPosition.CenterScreen;
             Load += AdminAddDoctors_Load;

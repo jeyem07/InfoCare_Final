@@ -16,6 +16,7 @@ namespace InfoCare_Final
     {
         private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
         private const string TimeComboboxPlaceholder = "Select a Time slot.";
+
         public AdminAddDoctors()
         {
             InitializeComponent();
@@ -71,33 +72,54 @@ namespace InfoCare_Final
                         return;
                     }
 
-                    string query = "INSERT INTO tb_Infocare (firstname, lastname, username, Consultationfee, Contactnumber, password, Role, Doctortime) VALUES (@firstname, @lastname, @username, @consultationfee, @contactnumber,  @password, @Role, @Doctortime)";
+                    string query = "INSERT INTO tb_Infocare (firstname, lastname, username, Consultationfee, Contactnumber, password, Role, DoctorStartTime, DoctorEndTime, Doctortime) " +
+                                   "VALUES (@firstname, @lastname, @username, @consultationfee, @contactnumber, @password, @Role, @DoctorStartTime, @DoctorEndTime, @Doctortime)";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@firstname", FirstNameTextBox.Text);
                         cmd.Parameters.AddWithValue("@lastname", LastNameTextBox.Text);
-                        cmd.Parameters.AddWithValue("@Username", UserNameTextBox.Text);
+                        cmd.Parameters.AddWithValue("@username", UserNameTextBox.Text);
                         cmd.Parameters.AddWithValue("@consultationfee", ConsultationFeeTextBox.Text);
                         cmd.Parameters.AddWithValue("@contactnumber", Contactnumbertextbox.Text);
                         cmd.Parameters.AddWithValue("@password", Password);
                         cmd.Parameters.AddWithValue("@Role", "Doctor");
-                        cmd.Parameters.AddWithValue("@Doctortime", TimeCombobox.Text);
 
+
+                        string selectedTime = TimeCombobox.SelectedItem?.ToString();
+                        if (!string.IsNullOrEmpty(selectedTime))
+                        {
+                            string[] timeParts = selectedTime.Split('-');
+                            if (timeParts.Length == 2)
+                            {
+                                string doctorStartTime = timeParts[0].Trim();
+                                string doctorEndTime = timeParts[1].Trim();
+
+                                cmd.Parameters.AddWithValue("@DoctorStartTime", doctorStartTime);
+                                cmd.Parameters.AddWithValue("@DoctorEndTime", doctorEndTime);
+                                cmd.Parameters.AddWithValue("@Doctortime", selectedTime);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid time range format.");
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please select a valid time range.");
+                            return;
+                        }
 
                         try
                         {
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Registration successful!");
-
-
                         }
                         catch (MySqlException ex)
                         {
                             MessageBox.Show("Error: " + ex.Message);
                         }
-
-
                     }
                 }
             }
@@ -135,18 +157,23 @@ namespace InfoCare_Final
         private void ChooseTime()
         {
             TimeSpan startTime = new TimeSpan(8, 0, 0);
-            TimeSpan endTime = new TimeSpan(24, 0, 0);
+            TimeSpan endTime = new TimeSpan(20, 0, 0);
             TimeSpan intervalTime = new TimeSpan(4, 0, 0);
 
             for (TimeSpan time = startTime; time < endTime; time += intervalTime)
             {
                 TimeSpan nextTime = time + intervalTime;
-                string timeString = $"{DateTime.Today.Add(time):HH:mm} - {DateTime.Today.Add(nextTime):HH:mm}";
+                string timeString = $"{DateTime.Today.Add(time):HH:mm} - {DateTime.Today.Add(nextTime):HH:mm}"; // Use HH:mm for military time
                 TimeCombobox.Items.Add(timeString);
-            }
-            TimeCombobox.SelectedIndex = 0;
-        }
 
+                // If the next time is equal to or exceeds the endTime, break the loop
+                if (nextTime >= endTime)
+                    break;
+            }
+
+            TimeCombobox.SelectedIndex = 0;
+
+        }
 
         private void ConsultationFeeTextBox_TextChanged(object sender, EventArgs e)
         {

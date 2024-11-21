@@ -85,7 +85,7 @@ namespace InfoCare_Final
                 {
                     conn.Open();
 
-                    string query = @" SELECT PatientName AS 'Patient Name', DoctorName AS 'Doctor Name', ConsultationFee AS 'Consultation Fee', AppointmentDate AS 'Appointment Date'
+                    string query = @" SELECT PatientName AS 'Patient Name', DoctorName AS 'Doctor Name', ConsultationFee AS 'Consultation Fee', AppointmentDate AS 'Appointment Date', AppointmentTime AS 'Appointment Time'
                                       FROM tb_AppointmentHistory
                                       WHERE DoctorName = @DoctorName";
 

@@ -205,6 +205,7 @@
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2PictureBox3);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
