@@ -281,6 +281,7 @@
             AdminDashboardDatagridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AdminDashboardDatagridview.Location = new Point(214, 121);
             AdminDashboardDatagridview.Name = "AdminDashboardDatagridview";
+            AdminDashboardDatagridview.ReadOnly = true;
             AdminDashboardDatagridview.RowHeadersWidth = 51;
             AdminDashboardDatagridview.RowTemplate.Height = 29;
             AdminDashboardDatagridview.Size = new Size(629, 368);

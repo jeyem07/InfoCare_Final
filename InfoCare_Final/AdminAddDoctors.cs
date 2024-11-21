@@ -15,10 +15,11 @@ namespace InfoCare_Final
     public partial class AdminAddDoctors : Form
     {
         private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
-
+        private const string TimeComboboxPlaceholder = "Select a Time slot.";
         public AdminAddDoctors()
         {
             InitializeComponent();
+            ChooseTime();
         }
 
         private void AdminAddDoctors_Load(object sender, EventArgs e)
@@ -28,14 +29,17 @@ namespace InfoCare_Final
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            AdminDashboardcs adminDashboardcs = new AdminDashboardcs();
-            adminDashboardcs.Show();
             this.Close();
-
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            if (TimeCombobox.SelectedIndex == 0 || TimeCombobox.SelectedItem.ToString() == TimeComboboxPlaceholder)
+            {
+                MessageBox.Show("Please select a Time slot.", "Invalid Option", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (String.IsNullOrEmpty(UserNameTextBox.Text) || String.IsNullOrEmpty(FirstNameTextBox.Text) || String.IsNullOrEmpty(LastNameTextBox.Text) || String.IsNullOrEmpty(ConsultationFeeTextBox.Text) || String.IsNullOrEmpty(PasswordTextBox.Text) || String.IsNullOrEmpty(ConfirmPasswordTextBox.Text))
             {
                 MessageBox.Show("Please fill out all fields.", "Incomplete Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -67,7 +71,7 @@ namespace InfoCare_Final
                         return;
                     }
 
-                    string query = "INSERT INTO tb_Infocare (firstname, lastname, username, Consultationfee, Contactnumber, password, Role) VALUES (@firstname, @lastname, @username, @consultationfee, @contactnumber,  @password, @Role)";
+                    string query = "INSERT INTO tb_Infocare (firstname, lastname, username, Consultationfee, Contactnumber, password, Role, Doctortime) VALUES (@firstname, @lastname, @username, @consultationfee, @contactnumber,  @password, @Role, @Doctortime)";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -78,6 +82,7 @@ namespace InfoCare_Final
                         cmd.Parameters.AddWithValue("@contactnumber", Contactnumbertextbox.Text);
                         cmd.Parameters.AddWithValue("@password", Password);
                         cmd.Parameters.AddWithValue("@Role", "Doctor");
+                        cmd.Parameters.AddWithValue("@Doctortime", TimeCombobox.Text);
 
 
                         try
@@ -116,6 +121,36 @@ namespace InfoCare_Final
                 ConfirmPasswordTextBox.PasswordChar = '●';
                 ConfirmPasswordTextBox.UseSystemPasswordChar = true;
             }
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TimeCombobox.SelectedIndex > 0)
+            {
+                string selectedtime = TimeCombobox.SelectedItem.ToString();
+                MessageBox.Show($"Selected Time: {selectedtime}");
+            }
+        }
+
+        private void ChooseTime()
+        {
+            TimeSpan startTime = new TimeSpan(8, 0, 0);
+            TimeSpan endTime = new TimeSpan(24, 0, 0);
+            TimeSpan intervalTime = new TimeSpan(4, 0, 0);
+
+            for (TimeSpan time = startTime; time < endTime; time += intervalTime)
+            {
+                TimeSpan nextTime = time + intervalTime;
+                string timeString = $"{DateTime.Today.Add(time):HH:mm} - {DateTime.Today.Add(nextTime):HH:mm}";
+                TimeCombobox.Items.Add(timeString);
+            }
+            TimeCombobox.SelectedIndex = 0;
+        }
+
+
+        private void ConsultationFeeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

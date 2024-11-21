@@ -190,6 +190,7 @@
             ViewAppointmentsDatagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ViewAppointmentsDatagrid.Location = new Point(3, 3);
             ViewAppointmentsDatagrid.Name = "ViewAppointmentsDatagrid";
+            ViewAppointmentsDatagrid.ReadOnly = true;
             ViewAppointmentsDatagrid.RowHeadersWidth = 51;
             ViewAppointmentsDatagrid.RowTemplate.Height = 29;
             ViewAppointmentsDatagrid.Size = new Size(566, 289);

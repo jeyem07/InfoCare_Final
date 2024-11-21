@@ -140,7 +140,7 @@ namespace InfoCare_Final
 
         private void PatientDashboard_Load(object sender, EventArgs e)
         {
-            LoadPatientDetails();            
+            LoadPatientDetails();
             AppointmentDatePicker.MinDate = DateTime.Today;
         }
 
@@ -210,5 +210,9 @@ namespace InfoCare_Final
             }
         }
 
+        private void TimeCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -59,6 +59,10 @@
             AppointmentHistoryButton = new Guna.UI2.WinForms.Guna2Button();
             BookAppointmentButton = new Guna.UI2.WinForms.Guna2Button();
             BookPanel = new Panel();
+            label2 = new Label();
+            panel4 = new Panel();
+            appointmentTimelabel = new Label();
+            panel5 = new Panel();
             label1 = new Label();
             ConsultationFeeLabel = new Label();
             BookSubmitButton = new Guna.UI2.WinForms.Guna2Button();
@@ -75,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             panel1.SuspendLayout();
             BookPanel.SuspendLayout();
+            panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
             panel2.SuspendLayout();
             AppointmentHistoryPanel.SuspendLayout();
@@ -163,13 +168,11 @@
             // Logoutlabel
             // 
             Logoutlabel.BackColor = Color.Transparent;
-            Logoutlabel.Font = new Font("Impact", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            Logoutlabel.Location = new Point(29, 16);
+            Logoutlabel.Location = new Point(0, 0);
             Logoutlabel.Name = "Logoutlabel";
-            Logoutlabel.Size = new Size(49, 21);
-            Logoutlabel.TabIndex = 20;
-            Logoutlabel.Text = "Log Out";
-            Logoutlabel.Click += Logoutlabel_Click;
+            Logoutlabel.Size = new Size(3, 2);
+            Logoutlabel.TabIndex = 24;
+            Logoutlabel.Text = null;
             // 
             // guna2HtmlLabel4
             // 
@@ -233,6 +236,8 @@
             // 
             // BookPanel
             // 
+            BookPanel.Controls.Add(label2);
+            BookPanel.Controls.Add(panel4);
             BookPanel.Controls.Add(label1);
             BookPanel.Controls.Add(ConsultationFeeLabel);
             BookPanel.Controls.Add(BookSubmitButton);
@@ -241,27 +246,65 @@
             BookPanel.Controls.Add(DoctorComboBox);
             BookPanel.Controls.Add(guna2HtmlLabel5);
             BookPanel.Controls.Add(panel2);
-            BookPanel.Location = new Point(251, 121);
+            BookPanel.Location = new Point(248, 124);
             BookPanel.Name = "BookPanel";
             BookPanel.Size = new Size(574, 308);
             BookPanel.TabIndex = 23;
             BookPanel.Visible = false;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(382, 126);
+            label2.Name = "label2";
+            label2.Size = new Size(134, 20);
+            label2.TabIndex = 31;
+            label2.Text = "Appointment Time";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = SystemColors.AppWorkspace;
+            panel4.Controls.Add(appointmentTimelabel);
+            panel4.Controls.Add(panel5);
+            panel4.ForeColor = SystemColors.ActiveBorder;
+            panel4.Location = new Point(354, 146);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(189, 36);
+            panel4.TabIndex = 32;
+            // 
+            // appointmentTimelabel
+            // 
+            appointmentTimelabel.AutoSize = true;
+            appointmentTimelabel.BackColor = Color.White;
+            appointmentTimelabel.Location = new Point(66, 7);
+            appointmentTimelabel.Name = "appointmentTimelabel";
+            appointmentTimelabel.Size = new Size(50, 20);
+            appointmentTimelabel.TabIndex = 0;
+            appointmentTimelabel.Text = "label3";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = SystemColors.Control;
+            panel5.ForeColor = SystemColors.ActiveBorder;
+            panel5.Location = new Point(3, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(183, 30);
+            panel5.TabIndex = 31;
+            // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Location = new Point(334, 48);
+            label1.Location = new Point(387, 41);
             label1.Name = "label1";
-            label1.Size = new Size(117, 20);
-            label1.TabIndex = 29;
-            label1.Text = "Consultation fee";
+            label1.Size = new Size(122, 23);
+            label1.TabIndex = 34;
+            label1.Text = "Consultation Fee";
             // 
             // ConsultationFeeLabel
             // 
             ConsultationFeeLabel.AutoSize = true;
             ConsultationFeeLabel.BackColor = Color.Transparent;
-            ConsultationFeeLabel.Location = new Point(355, 78);
+            ConsultationFeeLabel.Location = new Point(410, 74);
             ConsultationFeeLabel.Name = "ConsultationFeeLabel";
             ConsultationFeeLabel.Size = new Size(0, 20);
             ConsultationFeeLabel.TabIndex = 28;
@@ -277,7 +320,7 @@
             BookSubmitButton.FillColor = Color.FromArgb(102, 162, 205);
             BookSubmitButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             BookSubmitButton.ForeColor = Color.Black;
-            BookSubmitButton.Location = new Point(355, 223);
+            BookSubmitButton.Location = new Point(421, 249);
             BookSubmitButton.Name = "BookSubmitButton";
             BookSubmitButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
             BookSubmitButton.Size = new Size(122, 43);
@@ -292,7 +335,7 @@
             AppointmentDatePicker.FillColor = Color.FromArgb(102, 162, 205);
             AppointmentDatePicker.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             AppointmentDatePicker.Format = DateTimePickerFormat.Long;
-            AppointmentDatePicker.Location = new Point(157, 137);
+            AppointmentDatePicker.Location = new Point(88, 142);
             AppointmentDatePicker.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             AppointmentDatePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             AppointmentDatePicker.Name = "AppointmentDatePicker";
@@ -305,7 +348,7 @@
             // 
             guna2CirclePictureBox3.Image = Properties.Resources.PESO_LOGO;
             guna2CirclePictureBox3.ImageRotate = 0F;
-            guna2CirclePictureBox3.Location = new Point(315, 77);
+            guna2CirclePictureBox3.Location = new Point(370, 73);
             guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges15;
             guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -325,10 +368,10 @@
             DoctorComboBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             DoctorComboBox.ForeColor = Color.FromArgb(68, 88, 112);
             DoctorComboBox.ItemHeight = 30;
-            DoctorComboBox.Location = new Point(120, 71);
+            DoctorComboBox.Location = new Point(115, 67);
             DoctorComboBox.Name = "DoctorComboBox";
             DoctorComboBox.ShadowDecoration.CustomizableEdges = customizableEdges17;
-            DoctorComboBox.Size = new Size(166, 36);
+            DoctorComboBox.Size = new Size(182, 36);
             DoctorComboBox.TabIndex = 23;
             DoctorComboBox.SelectedIndexChanged += DoctorComboBox_SelectedIndexChanged;
             // 
@@ -336,7 +379,7 @@
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            guna2HtmlLabel5.Location = new Point(81, 77);
+            guna2HtmlLabel5.Location = new Point(76, 73);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(32, 20);
             guna2HtmlLabel5.TabIndex = 21;
@@ -344,31 +387,29 @@
             // 
             // panel2
             // 
-            panel2.BackColor = SystemColors.AppWorkspace;
+            panel2.BackColor = Color.White;
             panel2.Controls.Add(panel3);
             panel2.ForeColor = SystemColors.ActiveBorder;
-            panel2.Location = new Point(343, 71);
+            panel2.Location = new Point(398, 67);
             panel2.Name = "panel2";
             panel2.Size = new Size(95, 36);
             panel2.TabIndex = 30;
             // 
             // panel3
             // 
-            panel3.BackColor = SystemColors.Control;
-            panel3.ForeColor = SystemColors.ActiveBorder;
-            panel3.Location = new Point(3, 3);
+            panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(89, 30);
-            panel3.TabIndex = 31;
+            panel3.Size = new Size(95, 36);
+            panel3.TabIndex = 0;
             // 
             // AppointmentHistoryPanel
             // 
             AppointmentHistoryPanel.Controls.Add(AppointmentDatagridview);
             AppointmentHistoryPanel.CustomizableEdges = customizableEdges18;
-            AppointmentHistoryPanel.Location = new Point(251, 124);
+            AppointmentHistoryPanel.Location = new Point(248, 124);
             AppointmentHistoryPanel.Name = "AppointmentHistoryPanel";
             AppointmentHistoryPanel.ShadowDecoration.CustomizableEdges = customizableEdges19;
-            AppointmentHistoryPanel.Size = new Size(571, 333);
+            AppointmentHistoryPanel.Size = new Size(574, 333);
             AppointmentHistoryPanel.TabIndex = 28;
             AppointmentHistoryPanel.Visible = false;
             // 
@@ -377,6 +418,7 @@
             AppointmentDatagridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AppointmentDatagridview.Location = new Point(15, 13);
             AppointmentDatagridview.Name = "AppointmentDatagridview";
+            AppointmentDatagridview.ReadOnly = true;
             AppointmentDatagridview.RowHeadersWidth = 51;
             AppointmentDatagridview.RowTemplate.Height = 29;
             AppointmentDatagridview.Size = new Size(528, 289);
@@ -408,6 +450,8 @@
             panel1.PerformLayout();
             BookPanel.ResumeLayout(false);
             BookPanel.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
             panel2.ResumeLayout(false);
             AppointmentHistoryPanel.ResumeLayout(false);
@@ -441,5 +485,9 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker AppointmentDatePicker;
         private Panel panel3;
         private DataGridView AppointmentDatagridview;
+        private Label label2;
+        private Panel panel4;
+        private Panel panel5;
+        private Label appointmentTimelabel;
     }
 }

@@ -48,7 +48,7 @@ namespace InfoCare_Final
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT firstname as Firstname, lastname as Lastname, username as Username, consultationfee as 'Consultation Fee', password as Password from tb_infocare WHERE role = 'doctor'";
+                    string query = "SELECT firstname as Firstname, lastname as Lastname, username as Username, consultationfee as 'Consultation Fee', password as Password, Contactnumber as 'Contact Number', DoctorTime as Availability from tb_infocare WHERE role = 'doctor'";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable doctorTable = new DataTable();
                     adapter.Fill(doctorTable);
@@ -170,24 +170,6 @@ namespace InfoCare_Final
             AdminDashboardDatagridview.Visible = true;
             AppointmentListButtonChangeColor();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
