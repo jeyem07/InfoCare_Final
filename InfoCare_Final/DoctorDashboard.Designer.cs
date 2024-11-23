@@ -107,6 +107,7 @@
             PatientinformationButton.Size = new Size(183, 57);
             PatientinformationButton.TabIndex = 24;
             PatientinformationButton.Text = "PATIENT INFORMATION";
+            PatientinformationButton.Click += PatientinformationButton_Click;
             // 
             // guna2HtmlLabel4
             // 
@@ -243,6 +244,7 @@
             Controls.Add(panel1);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(LogoutButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "DoctorDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Load += DoctorDashboard_Load;

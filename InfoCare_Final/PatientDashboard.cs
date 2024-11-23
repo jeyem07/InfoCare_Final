@@ -95,21 +95,19 @@ namespace InfoCare_Final
             }
         }
 
-               private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedDoctor = DoctorComboBox.SelectedItem?.ToString() ?? "";
 
             if (selectedDoctor == DoctorComboBoxPlaceHolder)
             {
                 ConsultationFeeLabel.Text = "";
-                TimeCombobox.Items.Clear();  // Clear time slots when no doctor is selected
+                TimeCombobox.Items.Clear();
             }
             else if (DoctorFees.ContainsKey(selectedDoctor))
             {
-                // Display consultation fee
                 ConsultationFeeLabel.Text = DoctorFees[selectedDoctor];
 
-                // Fetch doctor time slots from the database
                 using (MySqlConnection conn = new MySqlConnection(ServerConnection))
                 {
                     conn.Open();
@@ -126,29 +124,26 @@ namespace InfoCare_Final
                         {
                             if (reader.Read())
                             {
-                                string startTimeStr = reader["DoctorStartTime"].ToString();
-                                string endTimeStr = reader["DoctorEndTime"].ToString();
+                                string startTime1 = reader["DoctorStartTime"].ToString();
+                                string endTime1 = reader["DoctorEndTime"].ToString();
 
-                                if (!string.IsNullOrEmpty(startTimeStr) && !string.IsNullOrEmpty(endTimeStr))
+                                if (!string.IsNullOrEmpty(startTime1) && !string.IsNullOrEmpty(endTime1))
                                 {
-                                    TimeSpan startTime = TimeSpan.Parse(startTimeStr);
-                                    TimeSpan endTime = TimeSpan.Parse(endTimeStr);
+                                    TimeSpan startTime = TimeSpan.Parse(startTime1);
+                                    TimeSpan endTime = TimeSpan.Parse(endTime1);
 
-                                    // Generate time slots
                                     TimeCombobox.Items.Clear();
                                     TimeCombobox.Items.Add("Select a Time Slot");
 
-                                    // Loop through every hour between start and end time
                                     for (TimeSpan currentTime = startTime; currentTime < endTime; currentTime = currentTime.Add(TimeSpan.FromHours(1)))
                                     {
-                                        // Ensure we add 4 time slots only within the 4-hour range
                                         if (currentTime < endTime)
                                         {
                                             TimeCombobox.Items.Add(currentTime.ToString(@"hh\:mm"));
                                         }
                                     }
 
-                                    TimeCombobox.SelectedIndex = 0; // Default to "Select a Time Slot"
+                                    TimeCombobox.SelectedIndex = 0;
                                     TimeCombobox.Refresh();
                                 }
                                 else
@@ -188,10 +183,8 @@ namespace InfoCare_Final
             DateTime appointmentDate = AppointmentDatePicker.Value;
             string selectedTime = TimeCombobox.SelectedItem.ToString();
 
-            // Combine appointment date and selected time for saving
             DateTime appointmentDateTime = DateTime.Parse($"{appointmentDate.ToShortDateString()} {selectedTime}");
 
-            // Check if there's already an appointment at the selected time for this doctor
             using (MySqlConnection conn = new MySqlConnection(ServerConnection))
             {
                 try
@@ -216,11 +209,10 @@ namespace InfoCare_Final
                         if (appointmentCount > 0)
                         {
                             MessageBox.Show("This time slot is already booked. Please select a different time.");
-                            return; // Exit method if the time slot is taken
+                            return;
                         }
                     }
 
-                    // Proceed with inserting the new appointment
                     string insertQuery = @"
                 INSERT INTO tb_appointmenthistory (PatientName, DoctorName, ConsultationFee, AppointmentDate, AppointmentTime) 
                 VALUES (@PatientName, @DoctorName, @ConsultationFee, @AppointmentDate, @AppointmentTime);";

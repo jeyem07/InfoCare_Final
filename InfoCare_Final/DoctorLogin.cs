@@ -35,8 +35,8 @@ namespace InfoCare_Final
             {
                 conn.Open();
                 string query = "SELECT password FROM tb_infocare WHERE username = @username and role = 'doctor'";
-               
-                
+
+
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
@@ -45,14 +45,14 @@ namespace InfoCare_Final
                     {
                         if (reader.Read())
                         {
-                                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                                DoctorDashboard doctorDashboard = new DoctorDashboard(username);
-                                doctorDashboard.Show();
+                            DoctorDashboard doctorDashboard = new DoctorDashboard(username);
+                            doctorDashboard.Show();
 
-                                this.Close();
-                                return;
+                            this.Close();
+                            return;
                         }
                         else
                         {

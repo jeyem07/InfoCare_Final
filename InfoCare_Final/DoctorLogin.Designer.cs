@@ -223,6 +223,7 @@
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2CirclePictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "DoctorLogin";
             StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();

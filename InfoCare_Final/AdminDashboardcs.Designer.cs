@@ -303,6 +303,7 @@
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(panel1);
             Controls.Add(guna2Button1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AdminDashboardcs";
             StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();

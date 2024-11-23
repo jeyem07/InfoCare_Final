@@ -15,7 +15,7 @@ namespace InfoCare_Final
     public partial class PatientLogin : Form
     {
         private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
-       
+
 
         public PatientLogin()
         {
@@ -37,7 +37,7 @@ namespace InfoCare_Final
             {
                 conn.Open();
                 string query = "SELECT Password,Role FROM tb_infocare WHERE username = @username and role = 'patient'";
-                
+
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
@@ -46,18 +46,18 @@ namespace InfoCare_Final
                     {
                         if (reader.Read())
                         {
-                            
+
                             string storedPassword = reader["Password"].ToString();
-                            
-                                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                
-                                PatientDashboard patientDashboard = new PatientDashboard(username);
-                                patientDashboard.Show();
+                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                this.Close();
-                                return;
-                            
+
+                            PatientDashboard patientDashboard = new PatientDashboard(username);
+                            patientDashboard.Show();
+
+                            this.Close();
+                            return;
+
                         }
 
                         else

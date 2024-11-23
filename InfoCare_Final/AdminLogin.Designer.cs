@@ -222,6 +222,7 @@
             Controls.Add(UsernameTextbox);
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2HtmlLabel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AdminLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Load += AdminLogin_Load;

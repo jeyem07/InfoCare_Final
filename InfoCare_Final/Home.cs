@@ -2,6 +2,7 @@ namespace InfoCare_Final
 {
     public partial class Home : Form
     {
+
         public Home()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace InfoCare_Final
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.Show();
             this.Hide();
+
         }
     }
 }

@@ -163,10 +163,9 @@ namespace InfoCare_Final
             for (TimeSpan time = startTime; time < endTime; time += intervalTime)
             {
                 TimeSpan nextTime = time + intervalTime;
-                string timeString = $"{DateTime.Today.Add(time):HH:mm} - {DateTime.Today.Add(nextTime):HH:mm}"; // Use HH:mm for military time
+                string timeString = $"{DateTime.Today.Add(time):HH:mm} - {DateTime.Today.Add(nextTime):HH:mm}";
                 TimeCombobox.Items.Add(timeString);
 
-                // If the next time is equal to or exceeds the endTime, break the loop
                 if (nextTime >= endTime)
                     break;
             }

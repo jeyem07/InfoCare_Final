@@ -109,6 +109,21 @@ namespace InfoCare_Final
                 }
             }
         }
+
+        private void PatientinformationButton_Click(object sender, EventArgs e)
+        {
+            Form patientInformation = Application.OpenForms["Patientinformation"];
+            if (patientInformation == null)
+            {
+                PatientInformation patientinformation = new PatientInformation();
+                patientinformation.Show();
+            }
+            else
+            {
+                patientInformation.BringToFront();
+                patientInformation.Focus();
+            }
+        }
     }
 }
 

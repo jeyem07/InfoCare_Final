@@ -61,7 +61,6 @@
             AppointmentHistoryButton = new Guna.UI2.WinForms.Guna2Button();
             BookAppointmentButton = new Guna.UI2.WinForms.Guna2Button();
             BookPanel = new Panel();
-            panel3 = new Panel();
             TimeCombobox = new Guna.UI2.WinForms.Guna2ComboBox();
             label1 = new Label();
             ConsultationFeeLabel = new Label();
@@ -71,6 +70,7 @@
             DoctorComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             panel2 = new Panel();
+            panel3 = new Panel();
             AppointmentHistoryPanel = new Guna.UI2.WinForms.Guna2Panel();
             AppointmentDatagridview = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
@@ -249,14 +249,6 @@
             BookPanel.TabIndex = 23;
             BookPanel.Visible = false;
             // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.Location = new Point(398, 67);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(95, 36);
-            panel3.TabIndex = 0;
-            // 
             // TimeCombobox
             // 
             TimeCombobox.BackColor = Color.Transparent;
@@ -377,6 +369,14 @@
             panel2.Size = new Size(95, 36);
             panel2.TabIndex = 30;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Location = new Point(398, 67);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(95, 36);
+            panel3.TabIndex = 0;
+            // 
             // AppointmentHistoryPanel
             // 
             AppointmentHistoryPanel.Controls.Add(AppointmentDatagridview);
@@ -415,6 +415,7 @@
             Controls.Add(PatientNameLabel);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(AppointmentHistoryPanel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "PatientDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Load += PatientDashboard_Load;

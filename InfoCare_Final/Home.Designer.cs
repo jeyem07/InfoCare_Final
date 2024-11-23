@@ -172,6 +172,7 @@
             // 
             // AdminFormButton
             // 
+            AdminFormButton.BackColor = Color.Transparent;
             AdminFormButton.BorderRadius = 20;
             AdminFormButton.Cursor = Cursors.Hand;
             AdminFormButton.CustomizableEdges = customizableEdges13;
