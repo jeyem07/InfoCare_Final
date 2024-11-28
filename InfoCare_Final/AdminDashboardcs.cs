@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -16,9 +17,9 @@ namespace InfoCare_Final
     {
 
 
-        private PatientList _patientlist;
-        private DoctorList _doctorlist;
-        private AllAppointment _allappointment;
+        private PatientList _patientlist { get; set; } = new PatientList();
+        private DoctorList _doctorlist { get; set; } = new DoctorList();
+        private AllAppointment _allappointment { get; set; } = new AllAppointment();
 
 
         //PatientList Dashboard
@@ -31,9 +32,9 @@ namespace InfoCare_Final
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
                     string query = "SELECT firstname as Firstname, lastname as Lastname, username as Username, contactnumber as 'Contact Number', password as Password from tb_infocare WHERE role = 'Patient'";
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
                     DataTable patientTable = new DataTable();
-                    adapter.Fill(patientTable);
+                    dataAdapter.Fill(patientTable);
                     return patientTable;
                 }
             }
@@ -49,9 +50,9 @@ namespace InfoCare_Final
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
                     string query = "SELECT firstname as Firstname, lastname as Lastname, username as Username, consultationfee as 'Consultation Fee', password as Password, Contactnumber as 'Contact Number', DoctorTime as Availability from tb_infocare WHERE role = 'doctor'";
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
                     DataTable doctorTable = new DataTable();
-                    adapter.Fill(doctorTable);
+                    dataAdapter.Fill(doctorTable);
                     return doctorTable;
                 }
             }
@@ -67,9 +68,9 @@ namespace InfoCare_Final
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
                     string query = "select patientname, doctorname, consultationfee, appointmentdate from tb_appointmenthistory;";
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
                     DataTable AllAppointment = new DataTable();
-                    adapter.Fill(AllAppointment);
+                    dataAdapter.Fill(AllAppointment);
                     return AllAppointment;
                 }
             }
@@ -80,10 +81,6 @@ namespace InfoCare_Final
         public AdminDashboardcs()
         {
             InitializeComponent();
-            _patientlist = new PatientList();
-            _doctorlist = new DoctorList();
-            _allappointment = new AllAppointment();
-
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)

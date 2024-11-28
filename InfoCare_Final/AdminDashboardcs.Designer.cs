@@ -32,10 +32,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -52,8 +52,8 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             panel1 = new Panel();
-            guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             PatientListButton = new Guna.UI2.WinForms.Guna2Button();
+            guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             AddDoctorButton = new Guna.UI2.WinForms.Guna2Button();
             AppointmentHistoryButton = new Guna.UI2.WinForms.Guna2Button();
             DoctorListButton = new Guna.UI2.WinForms.Guna2Button();
@@ -66,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
             panel1.SuspendLayout();
-            guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AdminDashboardDatagridview).BeginInit();
             SuspendLayout();
             // 
@@ -88,11 +87,11 @@
             guna2CirclePictureBox1.BackColor = Color.FromArgb(102, 162, 205);
             guna2CirclePictureBox1.Image = Properties.Resources.ADMIN_LOGO;
             guna2CirclePictureBox1.ImageRotate = 0F;
-            guna2CirclePictureBox1.Location = new Point(259, 35);
+            guna2CirclePictureBox1.Location = new Point(335, 35);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            guna2CirclePictureBox1.Size = new Size(53, 58);
+            guna2CirclePictureBox1.Size = new Size(53, 59);
             guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2CirclePictureBox1.TabIndex = 40;
             guna2CirclePictureBox1.TabStop = false;
@@ -101,11 +100,11 @@
             // 
             guna2CirclePictureBox3.Image = Properties.Resources.Screenshot_2024_11_15_212037;
             guna2CirclePictureBox3.ImageRotate = 0F;
-            guna2CirclePictureBox3.Location = new Point(240, 23);
+            guna2CirclePictureBox3.Location = new Point(315, 23);
             guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             guna2CirclePictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            guna2CirclePictureBox3.Size = new Size(88, 82);
+            guna2CirclePictureBox3.Size = new Size(88, 83);
             guna2CirclePictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2CirclePictureBox3.TabIndex = 41;
             guna2CirclePictureBox3.TabStop = false;
@@ -114,7 +113,7 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2HtmlLabel1.Location = new Point(414, 54);
+            guna2HtmlLabel1.Location = new Point(489, 53);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(82, 39);
             guna2HtmlLabel1.TabIndex = 39;
@@ -124,7 +123,7 @@
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2HtmlLabel2.Location = new Point(333, 54);
+            guna2HtmlLabel2.Location = new Point(408, 53);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(78, 39);
             guna2HtmlLabel2.TabIndex = 38;
@@ -132,6 +131,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(PatientListButton);
             panel1.Controls.Add(guna2CustomGradientPanel1);
             panel1.Controls.Add(AddDoctorButton);
             panel1.Controls.Add(AppointmentHistoryButton);
@@ -141,22 +141,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(207, 376);
             panel1.TabIndex = 37;
-            // 
-            // guna2CustomGradientPanel1
-            // 
-            guna2CustomGradientPanel1.BackColor = Color.Transparent;
-            guna2CustomGradientPanel1.BorderRadius = 20;
-            guna2CustomGradientPanel1.Controls.Add(PatientListButton);
-            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges7;
-            guna2CustomGradientPanel1.FillColor = Color.FromArgb(60, 128, 174);
-            guna2CustomGradientPanel1.FillColor2 = Color.FromArgb(60, 128, 174);
-            guna2CustomGradientPanel1.FillColor3 = Color.FromArgb(60, 128, 174);
-            guna2CustomGradientPanel1.FillColor4 = Color.FromArgb(60, 128, 174);
-            guna2CustomGradientPanel1.Location = new Point(29, 81);
-            guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2CustomGradientPanel1.Size = new Size(154, 62);
-            guna2CustomGradientPanel1.TabIndex = 48;
             // 
             // PatientListButton
             // 
@@ -170,13 +154,28 @@
             PatientListButton.FillColor = Color.FromArgb(102, 162, 205);
             PatientListButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             PatientListButton.ForeColor = Color.Black;
-            PatientListButton.Location = new Point(0, 0);
+            PatientListButton.Location = new Point(26, 18);
             PatientListButton.Name = "PatientListButton";
             PatientListButton.ShadowDecoration.CustomizableEdges = customizableEdges6;
             PatientListButton.Size = new Size(149, 57);
             PatientListButton.TabIndex = 46;
             PatientListButton.Text = "PATIENT LIST";
             PatientListButton.Click += PatientListButton_Click;
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            guna2CustomGradientPanel1.BackColor = Color.Transparent;
+            guna2CustomGradientPanel1.BorderRadius = 20;
+            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges7;
+            guna2CustomGradientPanel1.FillColor = Color.FromArgb(60, 128, 174);
+            guna2CustomGradientPanel1.FillColor2 = Color.FromArgb(60, 128, 174);
+            guna2CustomGradientPanel1.FillColor3 = Color.FromArgb(60, 128, 174);
+            guna2CustomGradientPanel1.FillColor4 = Color.FromArgb(60, 128, 174);
+            guna2CustomGradientPanel1.Location = new Point(29, 82);
+            guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2CustomGradientPanel1.Size = new Size(154, 61);
+            guna2CustomGradientPanel1.TabIndex = 48;
             // 
             // AddDoctorButton
             // 
@@ -311,7 +310,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(860, 498);
+            ClientSize = new Size(1022, 766);
             ControlBox = false;
             Controls.Add(AdminDashboardDatagridview);
             Controls.Add(guna2HtmlLabel3);
@@ -331,7 +330,6 @@
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            guna2CustomGradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)AdminDashboardDatagridview).EndInit();
             ResumeLayout(false);
             PerformLayout();

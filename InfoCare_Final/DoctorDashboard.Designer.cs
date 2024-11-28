@@ -233,7 +233,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(825, 463);
+            ClientSize = new Size(1022, 766);
             ControlBox = false;
             Controls.Add(guna2PictureBox1);
             Controls.Add(ViewAppointmentsPanel);

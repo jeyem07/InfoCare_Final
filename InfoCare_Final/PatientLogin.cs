@@ -33,16 +33,16 @@ namespace InfoCare_Final
                 return;
             }
 
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
+                connection.Open();
                 string query = "SELECT Password,Role FROM tb_infocare WHERE username = @username and role = 'patient'";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@username", username);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {

@@ -42,16 +42,16 @@ namespace InfoCare_Final
 
             string Password = PasswordTextbox.Text;
 
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
+                connection.Open();
                 string UserRepQuery = "SELECT COUNT(*) from tb_infocare where username = @username";
 
-                using (MySqlCommand checkCmd = new MySqlCommand(UserRepQuery, conn))
+                using (MySqlCommand checkCommand = new MySqlCommand(UserRepQuery, connection))
                 {
-                    checkCmd.Parameters.AddWithValue("@username", UsernameTextbox.Text);
+                    checkCommand.Parameters.AddWithValue("@username", UsernameTextbox.Text);
 
-                    int userCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    int userCount = Convert.ToInt32(checkCommand.ExecuteScalar());
                     if (userCount > 0)
                     {
                         MessageBox.Show("The username is already taken. Please choose a different one.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -60,17 +60,17 @@ namespace InfoCare_Final
 
                     string query = "INSERT INTO tb_infocare (Firstname, Lastname, username, Contactnumber, Password, Role) VALUES (@firstname, @Lastname, @username, @contactnumber,  @Password, @Role)";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@firstname", FirstnameTextbox.Text);
-                        cmd.Parameters.AddWithValue("@Lastname", LastnameTextbox.Text);
-                        cmd.Parameters.AddWithValue("@username", UsernameTextbox.Text);
-                        cmd.Parameters.AddWithValue("@contactnumber", ContactNumberTextbox.Text);
-                        cmd.Parameters.AddWithValue("@Password", Password);
-                        cmd.Parameters.AddWithValue("@Role", "Patient");
+                        command.Parameters.AddWithValue("@firstname", FirstnameTextbox.Text);
+                        command.Parameters.AddWithValue("@Lastname", LastnameTextbox.Text);
+                        command.Parameters.AddWithValue("@username", UsernameTextbox.Text);
+                        command.Parameters.AddWithValue("@contactnumber", ContactNumberTextbox.Text);
+                        command.Parameters.AddWithValue("@Password", Password);
+                        command.Parameters.AddWithValue("@Role", "Patient");
                         try
                         {
-                            cmd.ExecuteNonQuery();
+                            command.ExecuteNonQuery();
                             MessageBox.Show("Registration successful!");
 
                             PatientLogin patientLogin = new PatientLogin();

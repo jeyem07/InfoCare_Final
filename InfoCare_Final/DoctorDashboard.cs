@@ -44,22 +44,22 @@ namespace InfoCare_Final
 
         private void LoadDoctorDetails()
         {
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
+                connection.Open();
 
                 string query = "Select Firstname, lastname from tb_infocare where username = @username";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@username", LoggedInUsername);
+                    command.Parameters.AddWithValue("@username", LoggedInUsername);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader Datareader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (Datareader.Read())
                         {
-                            string firstName = reader["Firstname"].ToString();
-                            string lastName = reader["Lastname"].ToString();
+                            string firstName = Datareader["Firstname"].ToString();
+                            string lastName = Datareader["Lastname"].ToString();
 
 
                             DoctorNameLabel.Text = $"{lastName}, {firstName}";
@@ -78,26 +78,26 @@ namespace InfoCare_Final
         private void ViewAppointmentsButton_Click(object sender, EventArgs e)
         {
 
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
                 ViewAppointmentsPanel.Visible = true;
                 try
                 {
-                    conn.Open();
+                    connection.Open();
 
                     string query = @" SELECT PatientName AS 'Patient Name', DoctorName AS 'Doctor Name', ConsultationFee AS 'Consultation Fee', AppointmentDate AS 'Appointment Date', AppointmentTime AS 'Appointment Time'
                                       FROM tb_AppointmentHistory
                                       WHERE DoctorName = @DoctorName";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         string doctorName = DoctorNameLabel.Text;
 
-                        cmd.Parameters.AddWithValue("@DoctorName", doctorName);
+                        command.Parameters.AddWithValue("@DoctorName", doctorName);
 
-                        MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                        MySqlDataAdapter Dataadapter = new MySqlDataAdapter(command);
                         DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
+                        Dataadapter.Fill(dataTable);
 
                         ViewAppointmentsDatagrid.DataSource = dataTable;
                         ViewAppointmentsDatagrid.Visible = true;

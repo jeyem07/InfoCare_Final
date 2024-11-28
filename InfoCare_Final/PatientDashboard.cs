@@ -27,21 +27,21 @@ namespace InfoCare_Final
 
         private void LoadPatientDetails()
         {
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
+                connection.Open();
 
                 string query = "SELECT Firstname, lastname FROM tb_infocare WHERE username = @username";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@username", LoggedInUsername);
+                    command.Parameters.AddWithValue("@username", LoggedInUsername);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader Datareader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (Datareader.Read())
                         {
-                            string firstName = reader["Firstname"].ToString();
-                            string lastName = reader["Lastname"].ToString();
+                            string firstName = Datareader["Firstname"].ToString();
+                            string lastName = Datareader["Lastname"].ToString();
 
                             PatientNameLabel.Text = $"{lastName}, {firstName}";
                         }
@@ -67,13 +67,13 @@ namespace InfoCare_Final
             BookPanel.Visible = true;
             AppointmentHistoryPanel.Visible = false;
 
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
+                connection.Open();
 
                 string query = "SELECT lastname, firstname, consultationfee FROM tb_infocare WHERE role = 'doctor'";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader read = cmd.ExecuteReader();
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader Datareader = command.ExecuteReader();
 
                 DoctorComboBox.Items.Clear();
                 DoctorFees.Clear();
@@ -81,17 +81,17 @@ namespace InfoCare_Final
                 DoctorComboBox.Items.Add(DoctorComboBoxPlaceHolder);
                 DoctorComboBox.SelectedIndex = 0;
 
-                while (read.Read())
+                while (Datareader.Read())
                 {
-                    string lastName = read["lastname"].ToString();
-                    string firstName = read["firstname"].ToString();
+                    string lastName = Datareader["lastname"].ToString();
+                    string firstName = Datareader["firstname"].ToString();
                     string fullName = $"{lastName}, {firstName} ";
-                    string consultationFee = read["consultationfee"].ToString();
+                    string consultationFee = Datareader["consultationfee"].ToString();
 
                     DoctorComboBox.Items.Add(fullName);
                     DoctorFees[fullName] = consultationFee;
                 }
-                conn.Close();
+                connection.Close();
             }
         }
 
@@ -108,24 +108,24 @@ namespace InfoCare_Final
             {
                 ConsultationFeeLabel.Text = DoctorFees[selectedDoctor];
 
-                using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+                using (MySqlConnection connection = new MySqlConnection(ServerConnection))
                 {
-                    conn.Open();
+                    connection.Open();
                     string query = @"
                         SELECT DoctorStartTime, DoctorEndTime 
                         FROM tb_infocare 
                         WHERE CONCAT(lastname, ', ', firstname) = @doctorName AND role = 'Doctor'";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@doctorName", selectedDoctor);
+                        command.Parameters.AddWithValue("@doctorName", selectedDoctor);
 
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        using (MySqlDataReader Datareader = command.ExecuteReader())
                         {
-                            if (reader.Read())
+                            if (Datareader.Read())
                             {
-                                string startTime1 = reader["DoctorStartTime"].ToString();
-                                string endTime1 = reader["DoctorEndTime"].ToString();
+                                string startTime1 = Datareader["DoctorStartTime"].ToString();
+                                string endTime1 = Datareader["DoctorEndTime"].ToString();
 
                                 if (!string.IsNullOrEmpty(startTime1) && !string.IsNullOrEmpty(endTime1))
                                 {
@@ -191,14 +191,14 @@ namespace InfoCare_Final
                 {
                     conn.Open();
 
-                    string checkQuery = @"
+                    string checkerQuery = @"
                 SELECT COUNT(*) 
                 FROM tb_appointmenthistory
                 WHERE DoctorName = @DoctorName 
                 AND AppointmentDate = @AppointmentDate 
                 AND AppointmentTime = @AppointmentTime;";
 
-                    using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn))
+                    using (MySqlCommand checkCmd = new MySqlCommand(checkerQuery, conn))
                     {
                         checkCmd.Parameters.AddWithValue("@DoctorName", selectedDoctor);
                         checkCmd.Parameters.AddWithValue("@AppointmentDate", appointmentDate);
@@ -279,6 +279,11 @@ namespace InfoCare_Final
                     MessageBox.Show("Error loading appointment history: " + ex.Message);
                 }
             }
+        }
+
+        private void PatientNameLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -96,6 +96,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges66 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges67 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges68 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges69 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges70 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             label1 = new Label();
@@ -103,7 +105,6 @@
             label3 = new Label();
             label6 = new Label();
             label8 = new Label();
-            FirstNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             LastNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             MiddleNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             ContactNoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -210,6 +211,8 @@
             label77 = new Label();
             label78 = new Label();
             label81 = new Label();
+            PatientInformationSaveButton = new Guna.UI2.WinForms.Guna2Button();
+            FirstNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -289,29 +292,9 @@
             label8.TabIndex = 22;
             label8.Text = "Contact #:";
             // 
-            // FirstNameTextBox
-            // 
-            FirstNameTextBox.CustomizableEdges = customizableEdges3;
-            FirstNameTextBox.DefaultText = "";
-            FirstNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            FirstNameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            FirstNameTextBox.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            FirstNameTextBox.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            FirstNameTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            FirstNameTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            FirstNameTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            FirstNameTextBox.Location = new Point(154, 100);
-            FirstNameTextBox.Name = "FirstNameTextBox";
-            FirstNameTextBox.PasswordChar = '\0';
-            FirstNameTextBox.PlaceholderText = "";
-            FirstNameTextBox.SelectedText = "";
-            FirstNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            FirstNameTextBox.Size = new Size(213, 22);
-            FirstNameTextBox.TabIndex = 23;
-            // 
             // LastNameTextBox
             // 
-            LastNameTextBox.CustomizableEdges = customizableEdges5;
+            LastNameTextBox.CustomizableEdges = customizableEdges3;
             LastNameTextBox.DefaultText = "";
             LastNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             LastNameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -325,13 +308,13 @@
             LastNameTextBox.PasswordChar = '\0';
             LastNameTextBox.PlaceholderText = "";
             LastNameTextBox.SelectedText = "";
-            LastNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            LastNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             LastNameTextBox.Size = new Size(213, 22);
             LastNameTextBox.TabIndex = 24;
             // 
             // MiddleNameTextBox
             // 
-            MiddleNameTextBox.CustomizableEdges = customizableEdges7;
+            MiddleNameTextBox.CustomizableEdges = customizableEdges5;
             MiddleNameTextBox.DefaultText = "";
             MiddleNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             MiddleNameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -345,13 +328,13 @@
             MiddleNameTextBox.PasswordChar = '\0';
             MiddleNameTextBox.PlaceholderText = "";
             MiddleNameTextBox.SelectedText = "";
-            MiddleNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            MiddleNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             MiddleNameTextBox.Size = new Size(178, 22);
             MiddleNameTextBox.TabIndex = 25;
             // 
             // ContactNoTextBox
             // 
-            ContactNoTextBox.CustomizableEdges = customizableEdges9;
+            ContactNoTextBox.CustomizableEdges = customizableEdges7;
             ContactNoTextBox.DefaultText = "";
             ContactNoTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             ContactNoTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -365,7 +348,7 @@
             ContactNoTextBox.PasswordChar = '\0';
             ContactNoTextBox.PlaceholderText = "";
             ContactNoTextBox.SelectedText = "";
-            ContactNoTextBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            ContactNoTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             ContactNoTextBox.Size = new Size(178, 22);
             ContactNoTextBox.TabIndex = 26;
             // 
@@ -382,7 +365,7 @@
             // BirthDateTimePicker
             // 
             BirthDateTimePicker.Checked = true;
-            BirthDateTimePicker.CustomizableEdges = customizableEdges11;
+            BirthDateTimePicker.CustomizableEdges = customizableEdges9;
             BirthDateTimePicker.FillColor = Color.White;
             BirthDateTimePicker.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             BirthDateTimePicker.Format = DateTimePickerFormat.Long;
@@ -390,7 +373,7 @@
             BirthDateTimePicker.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             BirthDateTimePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             BirthDateTimePicker.Name = "BirthDateTimePicker";
-            BirthDateTimePicker.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            BirthDateTimePicker.ShadowDecoration.CustomizableEdges = customizableEdges10;
             BirthDateTimePicker.Size = new Size(138, 23);
             BirthDateTimePicker.TabIndex = 28;
             BirthDateTimePicker.Value = new DateTime(2024, 11, 20, 18, 52, 17, 42);
@@ -408,6 +391,7 @@
             // GenderComboBox
             // 
             GenderComboBox.FormattingEnabled = true;
+            GenderComboBox.Items.AddRange(new object[] { "M", "F" });
             GenderComboBox.Location = new Point(790, 130);
             GenderComboBox.Name = "GenderComboBox";
             GenderComboBox.Size = new Size(71, 28);
@@ -498,7 +482,7 @@
             // 
             // guna2TextBox12
             // 
-            guna2TextBox12.CustomizableEdges = customizableEdges13;
+            guna2TextBox12.CustomizableEdges = customizableEdges11;
             guna2TextBox12.DefaultText = "";
             guna2TextBox12.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox12.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -512,13 +496,13 @@
             guna2TextBox12.PasswordChar = '\0';
             guna2TextBox12.PlaceholderText = "";
             guna2TextBox12.SelectedText = "";
-            guna2TextBox12.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2TextBox12.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2TextBox12.Size = new Size(151, 22);
             guna2TextBox12.TabIndex = 42;
             // 
             // BloodPressureTextBox
             // 
-            BloodPressureTextBox.CustomizableEdges = customizableEdges15;
+            BloodPressureTextBox.CustomizableEdges = customizableEdges13;
             BloodPressureTextBox.DefaultText = "";
             BloodPressureTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             BloodPressureTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -532,13 +516,13 @@
             BloodPressureTextBox.PasswordChar = '\0';
             BloodPressureTextBox.PlaceholderText = "";
             BloodPressureTextBox.SelectedText = "";
-            BloodPressureTextBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            BloodPressureTextBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
             BloodPressureTextBox.Size = new Size(151, 22);
             BloodPressureTextBox.TabIndex = 41;
             // 
             // RHRTextBox
             // 
-            RHRTextBox.CustomizableEdges = customizableEdges17;
+            RHRTextBox.CustomizableEdges = customizableEdges15;
             RHRTextBox.DefaultText = "";
             RHRTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             RHRTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -552,13 +536,13 @@
             RHRTextBox.PasswordChar = '\0';
             RHRTextBox.PlaceholderText = "";
             RHRTextBox.SelectedText = "";
-            RHRTextBox.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            RHRTextBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
             RHRTextBox.Size = new Size(151, 22);
             RHRTextBox.TabIndex = 40;
             // 
             // WaistTextBox
             // 
-            WaistTextBox.CustomizableEdges = customizableEdges19;
+            WaistTextBox.CustomizableEdges = customizableEdges17;
             WaistTextBox.DefaultText = "";
             WaistTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             WaistTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -572,13 +556,13 @@
             WaistTextBox.PasswordChar = '\0';
             WaistTextBox.PlaceholderText = "";
             WaistTextBox.SelectedText = "";
-            WaistTextBox.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            WaistTextBox.ShadowDecoration.CustomizableEdges = customizableEdges18;
             WaistTextBox.Size = new Size(151, 22);
             WaistTextBox.TabIndex = 39;
             // 
             // BMITextBox
             // 
-            BMITextBox.CustomizableEdges = customizableEdges21;
+            BMITextBox.CustomizableEdges = customizableEdges19;
             BMITextBox.DefaultText = "";
             BMITextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             BMITextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -592,13 +576,13 @@
             BMITextBox.PasswordChar = '\0';
             BMITextBox.PlaceholderText = "";
             BMITextBox.SelectedText = "";
-            BMITextBox.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            BMITextBox.ShadowDecoration.CustomizableEdges = customizableEdges20;
             BMITextBox.Size = new Size(151, 22);
             BMITextBox.TabIndex = 38;
             // 
             // WeightTextBox
             // 
-            WeightTextBox.CustomizableEdges = customizableEdges23;
+            WeightTextBox.CustomizableEdges = customizableEdges21;
             WeightTextBox.DefaultText = "";
             WeightTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             WeightTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -612,7 +596,7 @@
             WeightTextBox.PasswordChar = '\0';
             WeightTextBox.PlaceholderText = "";
             WeightTextBox.SelectedText = "";
-            WeightTextBox.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            WeightTextBox.ShadowDecoration.CustomizableEdges = customizableEdges22;
             WeightTextBox.Size = new Size(151, 22);
             WeightTextBox.TabIndex = 37;
             // 
@@ -628,7 +612,7 @@
             // 
             // HeightTextBox
             // 
-            HeightTextBox.CustomizableEdges = customizableEdges25;
+            HeightTextBox.CustomizableEdges = customizableEdges23;
             HeightTextBox.DefaultText = "";
             HeightTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             HeightTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -642,7 +626,7 @@
             HeightTextBox.PasswordChar = '\0';
             HeightTextBox.PlaceholderText = "";
             HeightTextBox.SelectedText = "";
-            HeightTextBox.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            HeightTextBox.ShadowDecoration.CustomizableEdges = customizableEdges24;
             HeightTextBox.Size = new Size(151, 22);
             HeightTextBox.TabIndex = 35;
             // 
@@ -658,7 +642,7 @@
             // 
             // BloodTypeTextBox
             // 
-            BloodTypeTextBox.CustomizableEdges = customizableEdges27;
+            BloodTypeTextBox.CustomizableEdges = customizableEdges25;
             BloodTypeTextBox.DefaultText = "";
             BloodTypeTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             BloodTypeTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -672,7 +656,7 @@
             BloodTypeTextBox.PasswordChar = '\0';
             BloodTypeTextBox.PlaceholderText = "";
             BloodTypeTextBox.SelectedText = "";
-            BloodTypeTextBox.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            BloodTypeTextBox.ShadowDecoration.CustomizableEdges = customizableEdges26;
             BloodTypeTextBox.Size = new Size(151, 22);
             BloodTypeTextBox.TabIndex = 33;
             // 
@@ -867,7 +851,7 @@
             // 
             // guna2TextBox17
             // 
-            guna2TextBox17.CustomizableEdges = customizableEdges29;
+            guna2TextBox17.CustomizableEdges = customizableEdges27;
             guna2TextBox17.DefaultText = "";
             guna2TextBox17.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox17.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -881,13 +865,13 @@
             guna2TextBox17.PasswordChar = '\0';
             guna2TextBox17.PlaceholderText = "";
             guna2TextBox17.SelectedText = "";
-            guna2TextBox17.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            guna2TextBox17.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2TextBox17.Size = new Size(507, 22);
             guna2TextBox17.TabIndex = 69;
             // 
             // guna2TextBox18
             // 
-            guna2TextBox18.CustomizableEdges = customizableEdges31;
+            guna2TextBox18.CustomizableEdges = customizableEdges29;
             guna2TextBox18.DefaultText = "";
             guna2TextBox18.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox18.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -901,13 +885,13 @@
             guna2TextBox18.PasswordChar = '\0';
             guna2TextBox18.PlaceholderText = "";
             guna2TextBox18.SelectedText = "";
-            guna2TextBox18.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            guna2TextBox18.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2TextBox18.Size = new Size(507, 22);
             guna2TextBox18.TabIndex = 68;
             // 
             // guna2TextBox19
             // 
-            guna2TextBox19.CustomizableEdges = customizableEdges33;
+            guna2TextBox19.CustomizableEdges = customizableEdges31;
             guna2TextBox19.DefaultText = "";
             guna2TextBox19.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox19.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -921,13 +905,13 @@
             guna2TextBox19.PasswordChar = '\0';
             guna2TextBox19.PlaceholderText = "";
             guna2TextBox19.SelectedText = "";
-            guna2TextBox19.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            guna2TextBox19.ShadowDecoration.CustomizableEdges = customizableEdges32;
             guna2TextBox19.Size = new Size(507, 22);
             guna2TextBox19.TabIndex = 67;
             // 
             // FamilyMedHistoryTextBox
             // 
-            FamilyMedHistoryTextBox.CustomizableEdges = customizableEdges35;
+            FamilyMedHistoryTextBox.CustomizableEdges = customizableEdges33;
             FamilyMedHistoryTextBox.DefaultText = "";
             FamilyMedHistoryTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             FamilyMedHistoryTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -941,13 +925,13 @@
             FamilyMedHistoryTextBox.PasswordChar = '\0';
             FamilyMedHistoryTextBox.PlaceholderText = "";
             FamilyMedHistoryTextBox.SelectedText = "";
-            FamilyMedHistoryTextBox.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            FamilyMedHistoryTextBox.ShadowDecoration.CustomizableEdges = customizableEdges34;
             FamilyMedHistoryTextBox.Size = new Size(507, 22);
             FamilyMedHistoryTextBox.TabIndex = 66;
             // 
             // DateSurgeryTextBox
             // 
-            DateSurgeryTextBox.CustomizableEdges = customizableEdges37;
+            DateSurgeryTextBox.CustomizableEdges = customizableEdges35;
             DateSurgeryTextBox.DefaultText = "";
             DateSurgeryTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             DateSurgeryTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -961,13 +945,13 @@
             DateSurgeryTextBox.PasswordChar = '\0';
             DateSurgeryTextBox.PlaceholderText = "";
             DateSurgeryTextBox.SelectedText = "";
-            DateSurgeryTextBox.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            DateSurgeryTextBox.ShadowDecoration.CustomizableEdges = customizableEdges36;
             DateSurgeryTextBox.Size = new Size(507, 22);
             DateSurgeryTextBox.TabIndex = 65;
             // 
             // PrevSurgeryTextBox
             // 
-            PrevSurgeryTextBox.CustomizableEdges = customizableEdges39;
+            PrevSurgeryTextBox.CustomizableEdges = customizableEdges37;
             PrevSurgeryTextBox.DefaultText = "";
             PrevSurgeryTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             PrevSurgeryTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -981,7 +965,7 @@
             PrevSurgeryTextBox.PasswordChar = '\0';
             PrevSurgeryTextBox.PlaceholderText = "";
             PrevSurgeryTextBox.SelectedText = "";
-            PrevSurgeryTextBox.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            PrevSurgeryTextBox.ShadowDecoration.CustomizableEdges = customizableEdges38;
             PrevSurgeryTextBox.Size = new Size(507, 22);
             PrevSurgeryTextBox.TabIndex = 64;
             // 
@@ -997,7 +981,7 @@
             // 
             // TreatmentTextBox
             // 
-            TreatmentTextBox.CustomizableEdges = customizableEdges41;
+            TreatmentTextBox.CustomizableEdges = customizableEdges39;
             TreatmentTextBox.DefaultText = "";
             TreatmentTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             TreatmentTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1011,7 +995,7 @@
             TreatmentTextBox.PasswordChar = '\0';
             TreatmentTextBox.PlaceholderText = "";
             TreatmentTextBox.SelectedText = "";
-            TreatmentTextBox.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            TreatmentTextBox.ShadowDecoration.CustomizableEdges = customizableEdges40;
             TreatmentTextBox.Size = new Size(507, 22);
             TreatmentTextBox.TabIndex = 62;
             // 
@@ -1027,7 +1011,7 @@
             // 
             // ConditionTextBox
             // 
-            ConditionTextBox.CustomizableEdges = customizableEdges43;
+            ConditionTextBox.CustomizableEdges = customizableEdges41;
             ConditionTextBox.DefaultText = "";
             ConditionTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             ConditionTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1041,7 +1025,7 @@
             ConditionTextBox.PasswordChar = '\0';
             ConditionTextBox.PlaceholderText = "";
             ConditionTextBox.SelectedText = "";
-            ConditionTextBox.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            ConditionTextBox.ShadowDecoration.CustomizableEdges = customizableEdges42;
             ConditionTextBox.Size = new Size(507, 22);
             ConditionTextBox.TabIndex = 60;
             // 
@@ -1215,7 +1199,7 @@
             // 
             // guna2TextBox15
             // 
-            guna2TextBox15.CustomizableEdges = customizableEdges45;
+            guna2TextBox15.CustomizableEdges = customizableEdges43;
             guna2TextBox15.DefaultText = "";
             guna2TextBox15.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox15.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1229,13 +1213,13 @@
             guna2TextBox15.PasswordChar = '\0';
             guna2TextBox15.PlaceholderText = "";
             guna2TextBox15.SelectedText = "";
-            guna2TextBox15.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            guna2TextBox15.ShadowDecoration.CustomizableEdges = customizableEdges44;
             guna2TextBox15.Size = new Size(151, 22);
             guna2TextBox15.TabIndex = 40;
             // 
             // guna2TextBox16
             // 
-            guna2TextBox16.CustomizableEdges = customizableEdges47;
+            guna2TextBox16.CustomizableEdges = customizableEdges45;
             guna2TextBox16.DefaultText = "";
             guna2TextBox16.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox16.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1249,13 +1233,13 @@
             guna2TextBox16.PasswordChar = '\0';
             guna2TextBox16.PlaceholderText = "";
             guna2TextBox16.SelectedText = "";
-            guna2TextBox16.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            guna2TextBox16.ShadowDecoration.CustomizableEdges = customizableEdges46;
             guna2TextBox16.Size = new Size(151, 22);
             guna2TextBox16.TabIndex = 39;
             // 
             // guna2TextBox25
             // 
-            guna2TextBox25.CustomizableEdges = customizableEdges49;
+            guna2TextBox25.CustomizableEdges = customizableEdges47;
             guna2TextBox25.DefaultText = "";
             guna2TextBox25.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox25.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1269,13 +1253,13 @@
             guna2TextBox25.PasswordChar = '\0';
             guna2TextBox25.PlaceholderText = "";
             guna2TextBox25.SelectedText = "";
-            guna2TextBox25.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            guna2TextBox25.ShadowDecoration.CustomizableEdges = customizableEdges48;
             guna2TextBox25.Size = new Size(151, 22);
             guna2TextBox25.TabIndex = 38;
             // 
             // guna2TextBox26
             // 
-            guna2TextBox26.CustomizableEdges = customizableEdges51;
+            guna2TextBox26.CustomizableEdges = customizableEdges49;
             guna2TextBox26.DefaultText = "";
             guna2TextBox26.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox26.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1289,13 +1273,13 @@
             guna2TextBox26.PasswordChar = '\0';
             guna2TextBox26.PlaceholderText = "";
             guna2TextBox26.SelectedText = "";
-            guna2TextBox26.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            guna2TextBox26.ShadowDecoration.CustomizableEdges = customizableEdges50;
             guna2TextBox26.Size = new Size(151, 22);
             guna2TextBox26.TabIndex = 37;
             // 
             // guna2TextBox27
             // 
-            guna2TextBox27.CustomizableEdges = customizableEdges53;
+            guna2TextBox27.CustomizableEdges = customizableEdges51;
             guna2TextBox27.DefaultText = "";
             guna2TextBox27.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox27.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1309,7 +1293,7 @@
             guna2TextBox27.PasswordChar = '\0';
             guna2TextBox27.PlaceholderText = "";
             guna2TextBox27.SelectedText = "";
-            guna2TextBox27.ShadowDecoration.CustomizableEdges = customizableEdges54;
+            guna2TextBox27.ShadowDecoration.CustomizableEdges = customizableEdges52;
             guna2TextBox27.Size = new Size(151, 22);
             guna2TextBox27.TabIndex = 35;
             // 
@@ -1325,7 +1309,7 @@
             // 
             // guna2TextBox28
             // 
-            guna2TextBox28.CustomizableEdges = customizableEdges55;
+            guna2TextBox28.CustomizableEdges = customizableEdges53;
             guna2TextBox28.DefaultText = "";
             guna2TextBox28.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox28.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1339,7 +1323,7 @@
             guna2TextBox28.PasswordChar = '\0';
             guna2TextBox28.PlaceholderText = "";
             guna2TextBox28.SelectedText = "";
-            guna2TextBox28.ShadowDecoration.CustomizableEdges = customizableEdges56;
+            guna2TextBox28.ShadowDecoration.CustomizableEdges = customizableEdges54;
             guna2TextBox28.Size = new Size(151, 22);
             guna2TextBox28.TabIndex = 33;
             // 
@@ -1509,7 +1493,7 @@
             // 
             // guna2TextBox31
             // 
-            guna2TextBox31.CustomizableEdges = customizableEdges57;
+            guna2TextBox31.CustomizableEdges = customizableEdges55;
             guna2TextBox31.DefaultText = "";
             guna2TextBox31.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox31.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1523,13 +1507,13 @@
             guna2TextBox31.PasswordChar = '\0';
             guna2TextBox31.PlaceholderText = "";
             guna2TextBox31.SelectedText = "";
-            guna2TextBox31.ShadowDecoration.CustomizableEdges = customizableEdges58;
+            guna2TextBox31.ShadowDecoration.CustomizableEdges = customizableEdges56;
             guna2TextBox31.Size = new Size(507, 22);
             guna2TextBox31.TabIndex = 67;
             // 
             // guna2TextBox32
             // 
-            guna2TextBox32.CustomizableEdges = customizableEdges59;
+            guna2TextBox32.CustomizableEdges = customizableEdges57;
             guna2TextBox32.DefaultText = "";
             guna2TextBox32.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox32.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1543,13 +1527,13 @@
             guna2TextBox32.PasswordChar = '\0';
             guna2TextBox32.PlaceholderText = "";
             guna2TextBox32.SelectedText = "";
-            guna2TextBox32.ShadowDecoration.CustomizableEdges = customizableEdges60;
+            guna2TextBox32.ShadowDecoration.CustomizableEdges = customizableEdges58;
             guna2TextBox32.Size = new Size(507, 22);
             guna2TextBox32.TabIndex = 66;
             // 
             // guna2TextBox33
             // 
-            guna2TextBox33.CustomizableEdges = customizableEdges61;
+            guna2TextBox33.CustomizableEdges = customizableEdges59;
             guna2TextBox33.DefaultText = "";
             guna2TextBox33.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox33.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1563,13 +1547,13 @@
             guna2TextBox33.PasswordChar = '\0';
             guna2TextBox33.PlaceholderText = "";
             guna2TextBox33.SelectedText = "";
-            guna2TextBox33.ShadowDecoration.CustomizableEdges = customizableEdges62;
+            guna2TextBox33.ShadowDecoration.CustomizableEdges = customizableEdges60;
             guna2TextBox33.Size = new Size(507, 22);
             guna2TextBox33.TabIndex = 65;
             // 
             // EmergencyPhoneNumberTextBox
             // 
-            EmergencyPhoneNumberTextBox.CustomizableEdges = customizableEdges63;
+            EmergencyPhoneNumberTextBox.CustomizableEdges = customizableEdges61;
             EmergencyPhoneNumberTextBox.DefaultText = "";
             EmergencyPhoneNumberTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             EmergencyPhoneNumberTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1583,7 +1567,7 @@
             EmergencyPhoneNumberTextBox.PasswordChar = '\0';
             EmergencyPhoneNumberTextBox.PlaceholderText = "";
             EmergencyPhoneNumberTextBox.SelectedText = "";
-            EmergencyPhoneNumberTextBox.ShadowDecoration.CustomizableEdges = customizableEdges64;
+            EmergencyPhoneNumberTextBox.ShadowDecoration.CustomizableEdges = customizableEdges62;
             EmergencyPhoneNumberTextBox.Size = new Size(507, 22);
             EmergencyPhoneNumberTextBox.TabIndex = 64;
             // 
@@ -1599,7 +1583,7 @@
             // 
             // EmergencyRelationshipTextBox
             // 
-            EmergencyRelationshipTextBox.CustomizableEdges = customizableEdges65;
+            EmergencyRelationshipTextBox.CustomizableEdges = customizableEdges63;
             EmergencyRelationshipTextBox.DefaultText = "";
             EmergencyRelationshipTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             EmergencyRelationshipTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1613,7 +1597,7 @@
             EmergencyRelationshipTextBox.PasswordChar = '\0';
             EmergencyRelationshipTextBox.PlaceholderText = "";
             EmergencyRelationshipTextBox.SelectedText = "";
-            EmergencyRelationshipTextBox.ShadowDecoration.CustomizableEdges = customizableEdges66;
+            EmergencyRelationshipTextBox.ShadowDecoration.CustomizableEdges = customizableEdges64;
             EmergencyRelationshipTextBox.Size = new Size(507, 22);
             EmergencyRelationshipTextBox.TabIndex = 62;
             // 
@@ -1629,7 +1613,7 @@
             // 
             // EmerygencyNameTextBox
             // 
-            EmerygencyNameTextBox.CustomizableEdges = customizableEdges67;
+            EmerygencyNameTextBox.CustomizableEdges = customizableEdges65;
             EmerygencyNameTextBox.DefaultText = "";
             EmerygencyNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             EmerygencyNameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1643,7 +1627,7 @@
             EmerygencyNameTextBox.PasswordChar = '\0';
             EmerygencyNameTextBox.PlaceholderText = "";
             EmerygencyNameTextBox.SelectedText = "";
-            EmerygencyNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges68;
+            EmerygencyNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges66;
             EmerygencyNameTextBox.Size = new Size(507, 22);
             EmerygencyNameTextBox.TabIndex = 60;
             // 
@@ -1720,12 +1704,51 @@
             label81.TabIndex = 56;
             label81.Text = "_____________________________________________________________________________________________________________";
             // 
+            // PatientInformationSaveButton
+            // 
+            PatientInformationSaveButton.CustomizableEdges = customizableEdges67;
+            PatientInformationSaveButton.DisabledState.BorderColor = Color.DarkGray;
+            PatientInformationSaveButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            PatientInformationSaveButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            PatientInformationSaveButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            PatientInformationSaveButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PatientInformationSaveButton.ForeColor = Color.White;
+            PatientInformationSaveButton.Location = new Point(721, 33);
+            PatientInformationSaveButton.Name = "PatientInformationSaveButton";
+            PatientInformationSaveButton.ShadowDecoration.CustomizableEdges = customizableEdges68;
+            PatientInformationSaveButton.Size = new Size(225, 56);
+            PatientInformationSaveButton.TabIndex = 35;
+            PatientInformationSaveButton.Text = "Save";
+            PatientInformationSaveButton.Click += PatientInformationSaveButton_Click;
+            // 
+            // FirstNameTextBox
+            // 
+            FirstNameTextBox.CustomizableEdges = customizableEdges69;
+            FirstNameTextBox.DefaultText = "";
+            FirstNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            FirstNameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            FirstNameTextBox.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            FirstNameTextBox.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            FirstNameTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            FirstNameTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            FirstNameTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            FirstNameTextBox.Location = new Point(154, 105);
+            FirstNameTextBox.Name = "FirstNameTextBox";
+            FirstNameTextBox.PasswordChar = '\0';
+            FirstNameTextBox.PlaceholderText = "";
+            FirstNameTextBox.SelectedText = "";
+            FirstNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges70;
+            FirstNameTextBox.Size = new Size(213, 22);
+            FirstNameTextBox.TabIndex = 36;
+            // 
             // PatientInformation
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1024, 770);
+            ClientSize = new Size(1022, 766);
             ControlBox = false;
+            Controls.Add(FirstNameTextBox);
+            Controls.Add(PatientInformationSaveButton);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -1737,7 +1760,6 @@
             Controls.Add(ContactNoTextBox);
             Controls.Add(MiddleNameTextBox);
             Controls.Add(LastNameTextBox);
-            Controls.Add(FirstNameTextBox);
             Controls.Add(label8);
             Controls.Add(label6);
             Controls.Add(label3);
@@ -1770,7 +1792,6 @@
         private Label label3;
         private Label label6;
         private Label label8;
-        private Guna.UI2.WinForms.Guna2TextBox FirstNameTextBox;
         private Guna.UI2.WinForms.Guna2TextBox LastNameTextBox;
         private Guna.UI2.WinForms.Guna2TextBox MiddleNameTextBox;
         private Guna.UI2.WinForms.Guna2TextBox ContactNoTextBox;
@@ -1877,5 +1898,7 @@
         private Label label71;
         private Label label46;
         private Label label47;
+        private Guna.UI2.WinForms.Guna2Button PatientInformationSaveButton;
+        private Guna.UI2.WinForms.Guna2TextBox FirstNameTextBox;
     }
 }

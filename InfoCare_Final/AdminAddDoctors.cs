@@ -55,17 +55,17 @@ namespace InfoCare_Final
 
             string Password = PasswordTextBox.Text;
 
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
+                connection.Open();
 
                 string UserRepQuery = "SELECT COUNT(*) from tb_infocare where username = @username";
 
-                using (MySqlCommand checkCmd = new MySqlCommand(UserRepQuery, conn))
+                using (MySqlCommand checkCommand = new MySqlCommand(UserRepQuery, connection))
                 {
-                    checkCmd.Parameters.AddWithValue("@username", UserNameTextBox.Text);
+                    checkCommand.Parameters.AddWithValue("@username", UserNameTextBox.Text);
 
-                    int userCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    int userCount = Convert.ToInt32(checkCommand.ExecuteScalar());
                     if (userCount > 0)
                     {
                         MessageBox.Show("The username is already taken. Please choose a different one.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -75,15 +75,15 @@ namespace InfoCare_Final
                     string query = "INSERT INTO tb_Infocare (firstname, lastname, username, Consultationfee, Contactnumber, password, Role, DoctorStartTime, DoctorEndTime, Doctortime) " +
                                    "VALUES (@firstname, @lastname, @username, @consultationfee, @contactnumber, @password, @Role, @DoctorStartTime, @DoctorEndTime, @Doctortime)";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand commanmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@firstname", FirstNameTextBox.Text);
-                        cmd.Parameters.AddWithValue("@lastname", LastNameTextBox.Text);
-                        cmd.Parameters.AddWithValue("@username", UserNameTextBox.Text);
-                        cmd.Parameters.AddWithValue("@consultationfee", ConsultationFeeTextBox.Text);
-                        cmd.Parameters.AddWithValue("@contactnumber", Contactnumbertextbox.Text);
-                        cmd.Parameters.AddWithValue("@password", Password);
-                        cmd.Parameters.AddWithValue("@Role", "Doctor");
+                        commanmd.Parameters.AddWithValue("@firstname", FirstNameTextBox.Text);
+                        commanmd.Parameters.AddWithValue("@lastname", LastNameTextBox.Text);
+                        commanmd.Parameters.AddWithValue("@username", UserNameTextBox.Text);
+                        commanmd.Parameters.AddWithValue("@consultationfee", ConsultationFeeTextBox.Text);
+                        commanmd.Parameters.AddWithValue("@contactnumber", Contactnumbertextbox.Text);
+                        commanmd.Parameters.AddWithValue("@password", Password);
+                        commanmd.Parameters.AddWithValue("@Role", "Doctor");
 
 
                         string selectedTime = TimeCombobox.SelectedItem?.ToString();
@@ -95,9 +95,9 @@ namespace InfoCare_Final
                                 string doctorStartTime = timeParts[0].Trim();
                                 string doctorEndTime = timeParts[1].Trim();
 
-                                cmd.Parameters.AddWithValue("@DoctorStartTime", doctorStartTime);
-                                cmd.Parameters.AddWithValue("@DoctorEndTime", doctorEndTime);
-                                cmd.Parameters.AddWithValue("@Doctortime", selectedTime);
+                                commanmd.Parameters.AddWithValue("@DoctorStartTime", doctorStartTime);
+                                commanmd.Parameters.AddWithValue("@DoctorEndTime", doctorEndTime);
+                                commanmd.Parameters.AddWithValue("@Doctortime", selectedTime);
                             }
                             else
                             {
@@ -113,7 +113,7 @@ namespace InfoCare_Final
 
                         try
                         {
-                            cmd.ExecuteNonQuery();
+                            commanmd.ExecuteNonQuery();
                             MessageBox.Show("Registration successful!");
                         }
                         catch (MySqlException ex)
@@ -158,11 +158,11 @@ namespace InfoCare_Final
         {
             TimeSpan startTime = new TimeSpan(8, 0, 0);
             TimeSpan endTime = new TimeSpan(20, 0, 0);
-            TimeSpan intervalTime = new TimeSpan(4, 0, 0);
+            TimeSpan DifferenceTime = new TimeSpan(4, 0, 0);
 
-            for (TimeSpan time = startTime; time < endTime; time += intervalTime)
+            for (TimeSpan time = startTime; time < endTime; time += DifferenceTime)
             {
-                TimeSpan nextTime = time + intervalTime;
+                TimeSpan nextTime = time + DifferenceTime;
                 string timeString = $"{DateTime.Today.Add(time):HH:mm} - {DateTime.Today.Add(nextTime):HH:mm}";
                 TimeCombobox.Items.Add(timeString);
 

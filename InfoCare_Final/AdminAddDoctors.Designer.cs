@@ -374,7 +374,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(728, 574);
+            ClientSize = new Size(1022, 766);
             ControlBox = false;
             Controls.Add(TimeCombobox);
             Controls.Add(Contactnumbertextbox);
