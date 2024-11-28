@@ -211,7 +211,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(677, 412);
+            ClientSize = new Size(1022, 766);
             ControlBox = false;
             Controls.Add(guna2PictureBox2);
             Controls.Add(guna2CirclePictureBox1);
@@ -222,6 +222,7 @@
             Controls.Add(UsernameTextbox);
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2HtmlLabel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AdminLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Load += AdminLogin_Load;

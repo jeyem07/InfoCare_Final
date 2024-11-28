@@ -23,12 +23,8 @@ namespace InfoCare_Final
             InitializeComponent();
         }
 
-        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
-        private string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
@@ -44,39 +40,51 @@ namespace InfoCare_Final
                 return;
             }
 
-            string hashedPassword = HashPassword(PasswordTextbox.Text);
+            string Password = PasswordTextbox.Text;
 
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
-                string query = "INSERT INTO tb_infocare (p_firstname, p_Lastname, p_username, p_Contact, p_Password, p_hashedpassword, Role) VALUES (@p_firstname, @p_Lastname, @p_username, @p_contactnumber,  @p_Password, @p_HashedPassword, @Role)";
+                connection.Open();
+                string UserRepQuery = "SELECT COUNT(*) from tb_infocare where username = @username";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand checkCommand = new MySqlCommand(UserRepQuery, connection))
                 {
-                    cmd.Parameters.AddWithValue("@p_firstname", FirstnameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_Lastname", LastnameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_username", UsernameTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_contactnumber", ContactNumberTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_Password", PasswordTextbox.Text);
-                    cmd.Parameters.AddWithValue("@p_HashedPassword", hashedPassword);
-                    cmd.Parameters.AddWithValue("@Role", "Patient");
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Registration successful!");
+                    checkCommand.Parameters.AddWithValue("@username", UsernameTextbox.Text);
 
-                        PatientLogin patientLogin = new PatientLogin();
-                        patientLogin.Show();
-                        this.Hide();
-                    }
-                    catch (MySqlException ex)
+                    int userCount = Convert.ToInt32(checkCommand.ExecuteScalar());
+                    if (userCount > 0)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        MessageBox.Show("The username is already taken. Please choose a different one.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
+
+                    string query = "INSERT INTO tb_infocare (Firstname, Lastname, username, Contactnumber, Password, Role) VALUES (@firstname, @Lastname, @username, @contactnumber,  @Password, @Role)";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@firstname", FirstnameTextbox.Text);
+                        command.Parameters.AddWithValue("@Lastname", LastnameTextbox.Text);
+                        command.Parameters.AddWithValue("@username", UsernameTextbox.Text);
+                        command.Parameters.AddWithValue("@contactnumber", ContactNumberTextbox.Text);
+                        command.Parameters.AddWithValue("@Password", Password);
+                        command.Parameters.AddWithValue("@Role", "Patient");
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Registration successful!");
+
+                            PatientLogin patientLogin = new PatientLogin();
+                            patientLogin.Show();
+                            this.Close();
+                        }
+                        catch (MySqlException ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                    }
+
                 }
-
             }
-
 
         }
 
@@ -85,7 +93,7 @@ namespace InfoCare_Final
             PatientLogin patientLogin = new PatientLogin();
             patientLogin.Show();
 
-            this.Hide();
+            this.Close();
 
         }
 
@@ -93,7 +101,7 @@ namespace InfoCare_Final
         {
             Home home = new Home();
             home.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void ShowpasswordCheckbox_CheckedChanged(object sender, EventArgs e)

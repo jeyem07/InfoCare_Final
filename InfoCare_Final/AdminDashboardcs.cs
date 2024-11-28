@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -14,25 +15,26 @@ namespace InfoCare_Final
 {
     public partial class AdminDashboardcs : Form
     {
-        private string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
 
-        private PatientList _patientlist;
-        private DoctorList _doctorlist;
+
+        private PatientList _patientlist { get; set; } = new PatientList();
+        private DoctorList _doctorlist { get; set; } = new DoctorList();
+        private AllAppointment _allappointment { get; set; } = new AllAppointment();
 
 
         //PatientList Dashboard
         public class PatientList
         {
-            private string _connectionstring = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+            private string _connectionstring = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
             public DataTable GetPatients()
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT p_firstname, p_lastname, p_username, p_contact, p_password from tb_infocare WHERE role = 'Patient'";
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    string query = "SELECT firstname as Firstname, lastname as Lastname, username as Username, contactnumber as 'Contact Number', password as Password from tb_infocare WHERE role = 'Patient'";
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
                     DataTable patientTable = new DataTable();
-                    adapter.Fill(patientTable);
+                    dataAdapter.Fill(patientTable);
                     return patientTable;
                 }
             }
@@ -41,17 +43,35 @@ namespace InfoCare_Final
         //DoctorList Dashboard
         public class DoctorList
         {
-            private string _connectionstring = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+            private string _connectionstring = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
             public DataTable GetDoctors()
             {
                 using (MySqlConnection connection = new MySqlConnection(_connectionstring))
                 {
-                    string query = "SELECT d_firstname, d_lastname, d_username, d_consultationfee, d_password from tb_infocare WHERE role = 'doctor'";
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    string query = "SELECT firstname as Firstname, lastname as Lastname, username as Username, consultationfee as 'Consultation Fee', password as Password, Contactnumber as 'Contact Number', DoctorTime as Availability from tb_infocare WHERE role = 'doctor'";
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
                     DataTable doctorTable = new DataTable();
-                    adapter.Fill(doctorTable);
+                    dataAdapter.Fill(doctorTable);
                     return doctorTable;
+                }
+            }
+        }
+
+        //AllAppointment Dashboard
+        public class AllAppointment
+        {
+            private string _connectionstring = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
+
+            public DataTable GetAllAppointment()
+            {
+                using (MySqlConnection connection = new MySqlConnection(_connectionstring))
+                {
+                    string query = "select patientname, doctorname, consultationfee, appointmentdate from tb_appointmenthistory;";
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
+                    DataTable AllAppointment = new DataTable();
+                    dataAdapter.Fill(AllAppointment);
+                    return AllAppointment;
                 }
             }
         }
@@ -61,14 +81,6 @@ namespace InfoCare_Final
         public AdminDashboardcs()
         {
             InitializeComponent();
-            _patientlist = new PatientList();
-            _doctorlist = new DoctorList();
-
-        }
-
-        private string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -76,7 +88,8 @@ namespace InfoCare_Final
             MessageBox.Show("Log out succesful");
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.Show();
-            this.Hide();
+            this.Close();
+
         }
 
         private void AddDoctorButton_Click(object sender, EventArgs e)
@@ -93,6 +106,7 @@ namespace InfoCare_Final
                 managedoctor.BringToFront();
                 managedoctor.Focus();
             }
+
             AddDoctorButtonChangeColor();
 
         }
@@ -102,7 +116,7 @@ namespace InfoCare_Final
             MessageBox.Show("Log out succesful");
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void PatientListButton_Click(object sender, EventArgs e)
@@ -124,7 +138,7 @@ namespace InfoCare_Final
 
         private void DoctorListButton_Click(object sender, EventArgs e)
         {
-           
+
 
             try
             {
@@ -141,26 +155,18 @@ namespace InfoCare_Final
 
         private void AppointmentHistoryButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataTable AllAppointment = _allappointment.GetAllAppointment();
+                AdminDashboardDatagridview.DataSource = AllAppointment;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error:{ex.Message} ");
+            }
+            AdminDashboardDatagridview.Visible = true;
             AppointmentListButtonChangeColor();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -173,7 +179,7 @@ namespace InfoCare_Final
         }
         public void DoctorListButtonChangeColor()
         {
-             DoctorListButton.FillColor = Color.FromArgb(60, 128, 174);
+            DoctorListButton.FillColor = Color.FromArgb(60, 128, 174);
             PatientListButton.FillColor = Color.FromArgb(102, 162, 205);
             AppointmentHistoryButton.FillColor = Color.FromArgb(102, 162, 205);
             AddDoctorButton.FillColor = Color.FromArgb(102, 162, 205);

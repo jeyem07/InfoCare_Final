@@ -335,7 +335,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(777, 427);
+            ClientSize = new Size(1006, 750);
             ControlBox = false;
             Controls.Add(RegisterButton);
             Controls.Add(LoginLabel);

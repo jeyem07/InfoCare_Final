@@ -13,7 +13,7 @@ namespace InfoCare_Final
 {
     public partial class DoctorLogin : Form
     {
-        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocare;User ID=root;Password=";
+        private readonly string ServerConnection = "Server=127.0.0.1; Database=db_infocarefinal;User ID=root;Password=";
 
         public DoctorLogin()
         {
@@ -31,35 +31,37 @@ namespace InfoCare_Final
                 return;
             }
 
-            using (MySqlConnection conn = new MySqlConnection(ServerConnection))
+            using (MySqlConnection connection = new MySqlConnection(ServerConnection))
             {
-                conn.Open();
-                string query = "SELECT D_hashedpassword FROM tb_infocare WHERE D_username = @D_username";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                connection.Open();
+                string query = "SELECT password FROM tb_infocare WHERE username = @username and role = 'doctor'";
+
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@D_username", username);
-                    string storedHashedPassword = (string)cmd.ExecuteScalar();
+                    command.Parameters.AddWithValue("@username", username);
 
-                    if (storedHashedPassword != null && VerifyPassword(password, storedHashedPassword))
+                    using (MySqlDataReader Datareader = command.ExecuteReader())
                     {
-                        MessageBox.Show("Login successful!", "succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (Datareader.Read())
+                        {
+                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        DoctorDashboard doctorDashboard = new DoctorDashboard();
-                        doctorDashboard.Show();
 
-                        this.Hide();
+                            DoctorDashboard doctorDashboard = new DoctorDashboard(username);
+                            doctorDashboard.Show();
 
+                            this.Close();
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Credentials!", "Try Again.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password.", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+
                 }
             }
-        }
-        private bool VerifyPassword(string enteredPassword, string storedHashedPassword)
-        {
-            return BCrypt.Net.BCrypt.Verify(enteredPassword, storedHashedPassword);
         }
 
         private void ShowpasswordCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -80,7 +82,7 @@ namespace InfoCare_Final
         {
             Home home = new Home();
             home.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

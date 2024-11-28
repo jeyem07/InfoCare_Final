@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -52,6 +53,7 @@
             guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             DoctorFormButton = new Guna.UI2.WinForms.Guna2Button();
             AdminFormButton = new Guna.UI2.WinForms.Guna2Button();
+            guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox3).BeginInit();
@@ -62,7 +64,7 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Impact", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2HtmlLabel1.Location = new Point(216, 68);
+            guna2HtmlLabel1.Location = new Point(317, 191);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(364, 50);
             guna2HtmlLabel1.TabIndex = 0;
@@ -73,10 +75,10 @@
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Image = Properties.Resources.LOGO_INFO_CARE;
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(671, -5);
+            guna2PictureBox1.Location = new Point(853, 5);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2PictureBox1.Size = new Size(115, 101);
+            guna2PictureBox1.Size = new Size(167, 158);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox1.TabIndex = 1;
             guna2PictureBox1.TabStop = false;
@@ -85,7 +87,7 @@
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2HtmlLabel2.Location = new Point(322, 124);
+            guna2HtmlLabel2.Location = new Point(423, 247);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(133, 39);
             guna2HtmlLabel2.TabIndex = 2;
@@ -96,7 +98,7 @@
             guna2PictureBox2.CustomizableEdges = customizableEdges3;
             guna2PictureBox2.Image = (Image)resources.GetObject("guna2PictureBox2.Image");
             guna2PictureBox2.ImageRotate = 0F;
-            guna2PictureBox2.Location = new Point(48, 185);
+            guna2PictureBox2.Location = new Point(145, 308);
             guna2PictureBox2.Name = "guna2PictureBox2";
             guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2PictureBox2.Size = new Size(166, 150);
@@ -116,10 +118,10 @@
             PatientFormButton.FillColor = Color.FromArgb(102, 162, 205);
             PatientFormButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PatientFormButton.ForeColor = Color.Black;
-            PatientFormButton.Location = new Point(48, 344);
+            PatientFormButton.Location = new Point(133, 450);
             PatientFormButton.Name = "PatientFormButton";
             PatientFormButton.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            PatientFormButton.Size = new Size(166, 56);
+            PatientFormButton.Size = new Size(192, 56);
             PatientFormButton.TabIndex = 4;
             PatientFormButton.Text = "PATIENT";
             PatientFormButton.Click += PatientFormButton_Click;
@@ -129,7 +131,7 @@
             guna2PictureBox3.CustomizableEdges = customizableEdges7;
             guna2PictureBox3.Image = Properties.Resources.doctorLogo__1_;
             guna2PictureBox3.ImageRotate = 0F;
-            guna2PictureBox3.Location = new Point(254, 124);
+            guna2PictureBox3.Location = new Point(355, 247);
             guna2PictureBox3.Name = "guna2PictureBox3";
             guna2PictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2PictureBox3.Size = new Size(283, 276);
@@ -142,7 +144,7 @@
             guna2PictureBox4.CustomizableEdges = customizableEdges9;
             guna2PictureBox4.Image = (Image)resources.GetObject("guna2PictureBox4.Image");
             guna2PictureBox4.ImageRotate = 0F;
-            guna2PictureBox4.Location = new Point(559, 185);
+            guna2PictureBox4.Location = new Point(660, 308);
             guna2PictureBox4.Name = "guna2PictureBox4";
             guna2PictureBox4.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2PictureBox4.Size = new Size(179, 165);
@@ -162,16 +164,17 @@
             DoctorFormButton.FillColor = Color.FromArgb(102, 162, 205);
             DoctorFormButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             DoctorFormButton.ForeColor = Color.Black;
-            DoctorFormButton.Location = new Point(316, 344);
+            DoctorFormButton.Location = new Point(403, 450);
             DoctorFormButton.Name = "DoctorFormButton";
             DoctorFormButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            DoctorFormButton.Size = new Size(166, 56);
+            DoctorFormButton.Size = new Size(192, 56);
             DoctorFormButton.TabIndex = 7;
             DoctorFormButton.Text = "DOCTOR";
             DoctorFormButton.Click += DoctorFormButton_Click;
             // 
             // AdminFormButton
             // 
+            AdminFormButton.BackColor = Color.Transparent;
             AdminFormButton.BorderRadius = 20;
             AdminFormButton.Cursor = Cursors.Hand;
             AdminFormButton.CustomizableEdges = customizableEdges13;
@@ -182,19 +185,27 @@
             AdminFormButton.FillColor = Color.FromArgb(102, 162, 205);
             AdminFormButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             AdminFormButton.ForeColor = Color.Black;
-            AdminFormButton.Location = new Point(572, 344);
+            AdminFormButton.Location = new Point(660, 450);
             AdminFormButton.Name = "AdminFormButton";
             AdminFormButton.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            AdminFormButton.Size = new Size(166, 56);
+            AdminFormButton.Size = new Size(192, 56);
             AdminFormButton.TabIndex = 8;
             AdminFormButton.Text = "ADMIN";
             AdminFormButton.Click += AdminFormButton_Click;
+            // 
+            // guna2BorderlessForm1
+            // 
+            guna2BorderlessForm1.BorderRadius = 15;
+            guna2BorderlessForm1.ContainerControl = this;
+            guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            guna2BorderlessForm1.DragStartTransparencyValue = 1D;
+            guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(782, 412);
+            ClientSize = new Size(1022, 766);
             ControlBox = false;
             Controls.Add(AdminFormButton);
             Controls.Add(DoctorFormButton);
@@ -205,6 +216,7 @@
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2PictureBox3);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
@@ -226,5 +238,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private Guna.UI2.WinForms.Guna2Button DoctorFormButton;
         private Guna.UI2.WinForms.Guna2Button AdminFormButton;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }
